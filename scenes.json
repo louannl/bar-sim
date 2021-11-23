@@ -1,3 +1,46 @@
 {
-    
+    "scenes": {
+        "introScene": {
+            "intro": "It's a dark cold night outside the Coach and Horses Inn.\nYou, {main_character}, walk into the bar...\nYou approach the barman, {barman}. \nThey growl at you: 'What do ye want?' \nWhat do you do next?",
+            "options": {
+                "1": {
+                    "choice": "Ask for a cuppa tea, because you don't drink",
+                    "action": "You ask {barman}, 'Go on then, give us a cuppa?', he gives you a hot brew which you drink",
+                    "nextScene": "soberScene"
+                },
+                "2": {
+                    "choice": "Get a beer",
+                    "action": "You ask {barman}, 'Your finest brew, my dear barman ', he gives you a beer which you drink",
+                    "nextScene": "beerScene"
+                },
+                "3": {
+                    "choice": "Throw an empty glass at the barman for not using proper grammar",
+                    "action": "You grab an empty glass and throw it at {barman}...",
+                    "nextScene": "fightScene",
+                    "hit": "glass"
+                }
+            }
+        },
+        "fightScene": {
+            "intro": "How DARE you, shouts {enemy}. They seem angry, what do we do now?",
+            "options": {
+                "1": {
+                    "choice": "lorem",
+                    "action": "lorem",
+                    "nextScene": "soberScene",
+                    "hit": "broom"
+                },
+                "2": {
+                    "choice": "lorem",
+                    "action": "lorem",
+                    "nextScene": "beerScene"
+                },
+                "3": {
+                    "choice": "lorem",
+                    "action": "lorem",
+                    "nextScene": "fightScene"
+                }
+            }
+        }
+    }
 }
