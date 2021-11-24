@@ -1,24 +1,30 @@
 import json
 
-# Game state
+# I don't like comments, but I'm adding them for the sake of the team.
+# TODO: Error handling i.e. try/except for user inputs etc.
 
 
 class Game:
-    def __init__(self, main_character: str) -> None:
+    def __init__(self, main_character: str, barman: str) -> None:
+        # TODO: We can change this to auto generate on start?
         self.main_character = main_character
+        self.barman = barman
         self.pints = 0
 
     def increase_pints_randomly():
-        # TODO: roll dice
-        # 1-2: 1, 2-4: 2, 5-6: 3 pints
+        # TODO: roll dice to increase pints
+        # e.g. 1-2: 1, 2-4: 2, 5-6: 3 pints
         pass
 
 
-class Scene(Game):
-    def __init__(self, main_character: str, intro: str, options) -> None:
-        super().__init__(main_character)
+class Scene():
+    def __init__(self, intro: str, options) -> None:
         self.intro = intro
         self.options = options
+
+    def render_intro(self, main_character, barman):
+        return self.intro.replace('{{BARMAN}}', barman).replace(
+            '{{MAIN_CHARACTER}}', main_character)
 
     def render_choices(self):
         rendered_options = ''
@@ -26,27 +32,37 @@ class Scene(Game):
             rendered_options += f'{option}. {self.options[option]["choice"]}\n'
         return rendered_options
 
+    def render_result(self, choice: int):
+        return self.options[str(choice)]['action']
+
+
+def scene_generator(scene_name: str, scene_data):
+    # Initialise scene with scene info
+    scene = Scene(
+        scene_data[scene_name]['intro'],
+        scene_data[scene_name]['options']
+    )
+    # Render intro of the scene (need to make dynamic!!!)
+    print(scene.render_intro(game_state.main_character, game_state.barman))
+    print(scene.render_choices())
+    choice = int(input('Pick: '))
+    print(scene.render_result(choice))
+
+# TODO: Create a loop that uses the scene then moves on to the next scene
+# TODO: Add functionality to have succesful and failures in the scenes (see JSON)
+
 
 if __name__ == '__main__':
-    game_state = Game('Thomas the Tank Engine')
-    # testing scene:
+    # Checking it works!!!
+    game_state = Game('Thomas the Tank Engine', 'Terry the barman')
 
-    # get json data from scenes.json
+    # Read JSON file and return Game Scenes i.e. game_scenes
     with open("scenes.json") as jsonScenesFile:
         game_file = json.load(jsonScenesFile)
         game_scenes = game_file['scenes']
         jsonScenesFile.close()
 
-    # get introscene info from scenes.json
-    introScene = game_scenes['introScene']
-
-    # Create a scene using introscene info
-    intro_scene = Scene(
-        'Thomas the Tank Engine',
-        introScene['intro'],
-        introScene['options']
-    )
-    # Render intro of the scene (need to make dynamic!!!)
-    print(intro_scene.intro)
-    # Render options
-    print(intro_scene.render_choices())
+    # Start with introScene
+    scene_generator('introScene', game_scenes)
+    # Checking whether barScene replaces 'barman' with game state barman
+    scene_generator('barScene', game_scenes)
