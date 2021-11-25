@@ -1,4 +1,5 @@
 import json
+from os import error
 
 # I don't like comments, but I'm adding them for the sake of the team.
 # TODO: Error handling i.e. try/except for user inputs etc.
@@ -6,7 +7,8 @@ import json
 
 class Game:
     def __init__(self, main_character: str, barman: str) -> None:
-        # TODO: We can change this to auto generate on start?
+        # TODO: Change this to auto-generate characters on initialization
+        # Then we can remove inputting main_char/barman
         self.main_character = main_character
         self.barman = barman
         self.pints = 0
@@ -23,6 +25,8 @@ class Scene():
         self.options = options
 
     def render_intro(self, main_character, barman):
+        # Might be worth making this dynamic i.e. input game_state_characters (dict)
+        # Then replace all those characters dynamically in any intro
         return self.intro.replace('{{BARMAN}}', barman).replace(
             '{{MAIN_CHARACTER}}', main_character)
 
@@ -42,18 +46,18 @@ def scene_generator(scene_name: str, scene_data):
         scene_data[scene_name]['intro'],
         scene_data[scene_name]['options']
     )
-    # Render intro of the scene (need to make dynamic!!!)
+    # TODO: As mentioned above, we can look at making this dynamic
     print(scene.render_intro(game_state.main_character, game_state.barman))
     print(scene.render_choices())
     choice = int(input('Pick: '))
     print(scene.render_result(choice))
-
-# TODO: Create a loop that uses the scene then moves on to the next scene
-# TODO: Add functionality to have succesful and failures in the scenes (see JSON)
+    # TODO: Add functionality so if a choice has more than one nextScene (dependant)
+    # on an event etc. this will run the event then return the success/failure scene
+    return scene.options[str(choice)]['nextScene']
 
 
 if __name__ == '__main__':
-    # Checking it works!!!
+    # Let's run this to see if it works!
     game_state = Game('Thomas the Tank Engine', 'Terry the barman')
 
     # Read JSON file and return Game Scenes i.e. game_scenes
@@ -62,7 +66,19 @@ if __name__ == '__main__':
         game_scenes = game_file['scenes']
         jsonScenesFile.close()
 
-    # Start with introScene
-    scene_generator('introScene', game_scenes)
-    # Checking whether barScene replaces 'barman' with game state barman
-    scene_generator('barScene', game_scenes)
+    # The starting scenario!
+    scenario = 'introScene'
+    # We don't have endScene or error handling, so I've limited this to avoid
+    # an infinite loop!
+    count = 0
+    while scenario != 'endScene':
+        try:
+            if count > 5:
+                # To avoid an infinite loop
+                break
+            scenario = scene_generator(scenario, game_scenes)
+            count += 1
+        except error:
+            print(error)
+
+    # TODO: Run the endscene sequence!
