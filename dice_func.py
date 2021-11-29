@@ -12,16 +12,14 @@ class DiceDecider:
         self.dice_result = random.randint(1, 6)
         return self.dice_result
 
-    def odd_or_even(self):
+    def is_even(self):
         self.dice_roll()
-        if (self.dice_result % 2) == 0:
-            return True
-        else:
-            return False
+        return (self.dice_result % 2) == 0
 
     def try_action_50_50(self, action):
-        if self.odd_or_even():
+        if self.is_even():
             print("Success! You have managed to {}".format(action))
+            return True
         else:
             try_new_thing = input("Oh no! You failed to {}, would you like to try something else? y/n ".format(action))
             if try_new_thing == 'y':
@@ -29,11 +27,13 @@ class DiceDecider:
                 self.try_action_50_50(action)
             else:
                 exit()
+            return False
 
     def try_action_custom_odds(self, action, min_num_to_do_action):
         dice_roll = self.dice_roll()
         if dice_roll <= min_num_to_do_action:
             print("Success! You have managed to {}".format(action))
+            return True
         else:
             try_new_thing = input("Oh no! You failed to {}, would you like to try something else? y/n ".format(action))
             if try_new_thing == 'y':
@@ -41,3 +41,4 @@ class DiceDecider:
                 self.try_action_custom_odds(action, min_num_to_do_action)
             else:
                 exit()
+            return False
