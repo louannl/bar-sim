@@ -48,7 +48,7 @@ class Query():
         return len_results
 
 
-#### parametirisation of the SQL queries hekos protect against SQL injenction ####
+#### parametirisation of the SQL queries helps protect against SQL injenction ####
 
 #### create query to send game data to game_info table ####
     def send_game_data(self, player_name,game_character, game_time_string, end_result):
@@ -63,8 +63,8 @@ class Query():
 #### create query to send player to player_info table database ####
     def send_player_data(self, player_name):
         query_string =  ('''INSERT INTO player_info (Full_Name) VALUES %s''')
-        params = (player_name)
-        send_player_connection = self.game_db_query(query_string, params,)
+        params = (player_name,)
+        send_player_connection = self.game_db_query(query_string, params)
         return send_player_connection
 
 
@@ -75,6 +75,7 @@ class Query():
         query_result = (self.game_db_query(query_string, params))
         return query_result
 
+ ### func to create query that will update the total number of plays for the player anfter the individual game data is added ###
     def update_total_plays(self, player_name):
         query_string = ('''UPDATE player_info p
         INNER JOIN (SELECT Player_Name, COUNT(Player_Name) as player_count 
