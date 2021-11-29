@@ -1,5 +1,4 @@
-from game_save_functions import EndOfGame
-from End_Of_Game import Query
+from End_Of_Game import EndOfGame, Query
 
 def main():
 
