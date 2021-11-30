@@ -1,0 +1,110 @@
+{
+    "scenes": {
+        "introScene": {
+            "intro": "You're thirsty.\nNot just thirsty, you want a real drink, poured by someone else.\nYou're looking in through the grimy windows of a Bar.  It looks busy, but warm.  Do you go in and join the crowd or keep looking for somewhere more quiet?",
+            "options": {
+                "1": {
+                    "choice": "Bird in the hand",
+                    "action": "But there's a beery undertone in the air that draws you further in.",
+                    "nextScene": "beerScene"
+                },
+                "2": {
+                    "choice": "Move on",
+                    "action": "You still need a drink...",
+                    "nextScene": "nextPubScene"
+                }
+            }
+        },
+        "beerScene": {
+            "intro": "The counter crowd is formidable - 8, 10 deep?  All giants.\n Do you: ",
+            "options": {
+                "1": {
+                    "choice": "Dive in, elbows out",
+                    "action": "{{Roll dice}}",
+                    "nextScene": {
+                        "success": "barScene",
+                        "fail": "nextPubScene"
+                    }
+                },
+                "2": {
+                    "choice": "Find a seat and wait till it dies down",
+                    "action": "The wide table in the far right corner. There's only one guy there, head in a book.",
+                    "nextScene": "tableScene"
+                }
+            }
+        },
+        "tableScene": {
+            "intro": "You sit down at a table, hopefully the crowd will die down. You look at your LG Cookie and notice the date.. \nIt's Wales vs. the All blacks today and you're in a pub in Cardiff. \n You realise this crowd isn't going to die down anytime soon. Then at the moment.. \n'So what's your take on Roswell, then?';  You see the stranger's book has little green people on the cover.",
+            "options": {
+                "1": {
+                    "choice": "Stay - you always have a great night with people like this",
+                    "action": "{{Roll dice}}",
+                    "nextScene": {
+                        "success": "barScene",
+                        "fail": "nextPubScene"
+                    }
+                },
+                "2": {
+                    "choice": "Feign an emergency on your LG Cookie and motion that you can't talk",
+                    "action": "",
+                    "nextScene": ""
+                },
+                "3": {
+                    "choice": "Bring out your inner-welsh and dive for the bar again.",
+                    "action": "{{Roll dice}}",
+                    "nextScene": {
+                        "success": "barScene",
+                        "fail": "nextPubScene"
+                    }
+                }
+            }
+        },
+        "barScene": {
+            "intro": "Success, you get to the bar to be greeted by {{BARMAN}}, the barman \n What do you order?",
+            "options": {
+                "1": {
+                    "choice": "",
+                    "action": "{{Roll dice}}",
+                    "nextScene": {
+                        "success": "",
+                        "fail": ""
+                    }
+                },
+                "2": {
+                    "choice": "",
+                    "action": "",
+                    "nextScene": ""
+                },
+                "3": {
+                    "choice": "",
+                    "action": "{{Roll dice}}",
+                    "nextScene": {
+                        "success": "",
+                        "fail": ""
+                    }
+                }
+            }
+        },
+        "fightScene": {
+            "intro": "How DARE you, shouts {{ENEMY}}. They seem angry, what do we do now?",
+            "options": {
+                "1": {
+                    "choice": "lorem",
+                    "action": "lorem",
+                    "nextScene": "soberScene",
+                    "attack": "broom"
+                },
+                "2": {
+                    "choice": "lorem",
+                    "action": "lorem",
+                    "nextScene": "beerScene"
+                },
+                "3": {
+                    "choice": "lorem",
+                    "action": "lorem",
+                    "nextScene": "fightScene"
+                }
+            }
+        }
+    }
+}
