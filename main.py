@@ -1,4 +1,4 @@
-from End_Of_Game import EndOfGame, Query
+from utils import EndOfGame, Query
 import json
 from os import error
 
