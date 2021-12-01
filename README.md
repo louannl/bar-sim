@@ -1,5 +1,10 @@
 # bar-sim
 
+packages to be installed:
+
+python-dotenv
+mysql-connector-python
+
 the main file contains a few lines of code showing how the end of the game is saved with just some mock variables containing
 
 --player_name
