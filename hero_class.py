@@ -16,8 +16,6 @@ class Superhero():
     def getName(self):
         return self.getName()
 
-    def getName(self):
-        return self.getName()
 
 #EXAMPLE CALL TO CREATE USER CHARACTER
 player1=Superhero(get_character(set_user_character()))
