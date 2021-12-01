@@ -2,6 +2,7 @@ from database_connection import connect_db
 import datetime
 from datetime import datetime
 
+
 ######## creates a time stamp for game finish #########
 
 class GameSave():
@@ -31,11 +32,9 @@ class Query():
     def game_db_query(self, db_query, params):
         db_connection = {}
         try:
-            db_name = 'Game'
-            db_connection = connect_db(db_name)
+            db_connection = connect_db()
             cursor = db_connection.cursor()
-            query = (db_query)
-            cursor.execute(query, params)
+            cursor.execute(db_query, (params))
             results = cursor.fetchall()
             len_results = (len(results))
             cursor.close()
@@ -51,10 +50,10 @@ class Query():
 #### parametirisation of the SQL queries helps protect against SQL injenction ####
 
 #### create query to send game data to game_info table ####
-    def send_game_data(self, player_name,game_character, game_time_string, end_result):
+    def send_game_data(self, player_name, game_character, game_time_string, end_result):
         query_string = ('''INSERT INTO game_info (Player_Name, Player_Character, Game_Result, Date_Of_Game)
-        VALUES (%s,%s,%s,%s)''')
-        params = (player_name, game_character,game_time_string, end_result,)
+         VALUES (%s,%s,%s,%s)''')
+        params = (player_name, game_character, end_result, game_time_string,)
         send_game_connection = self.game_db_query(query_string, params)
         return send_game_connection
 
@@ -62,7 +61,11 @@ class Query():
 
 #### create query to send player to player_info table database ####
     def send_player_data(self, player_name):
+<<<<<<< HEAD
+        query_string = '''INSERT INTO player_info (Full_Name) VALUES (%s)'''
+=======
         query_string =  ('''INSERT INTO player_info (Full_Name) VALUES %s''')
+>>>>>>> 9368c55a46cbefa93058ff38d25b65918352d811
         params = (player_name,)
         send_player_connection = self.game_db_query(query_string, params)
         return send_player_connection
@@ -77,13 +80,13 @@ class Query():
 
  ### func to create query that will update the total number of plays for the player anfter the individual game data is added ###
     def update_total_plays(self, player_name):
-        query_string = ('''UPDATE player_info p
+        query_string = '''UPDATE player_info p
         INNER JOIN (SELECT Player_Name, COUNT(Player_Name) as player_count 
         FROM game_info 
         GROUP BY Player_Name) AS g
         ON g.Player_Name = p.Full_Name
         SET p.Total_Plays = g.player_count
-        WHERE Full_Name = %s''')
+        WHERE Full_Name = %s '''
         params = (player_name,)
         update_total_play = self.game_db_query(query_string, params)
         return update_total_play
