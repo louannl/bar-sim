@@ -1,5 +1,3 @@
-from database_connection import connect_db
-import datetime
 from datetime import datetime
 import mysql.connector
 import os
@@ -77,7 +75,6 @@ class Query():
 #### create query to send player to player_info table database ####
     def send_player_data(self, player_name):
         query_string = '''INSERT INTO player_info (Full_Name) VALUES (%s)'''
-        query_string =  ('''INSERT INTO player_info (Full_Name) VALUES %s''')
         params = (player_name,)
         send_player_connection = self.game_db_query(query_string, params)
         return send_player_connection

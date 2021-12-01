@@ -5,7 +5,7 @@ def main():
     ###### mimic end of game #####
     ### will make sure these variable names match rest of main script ###
     player_name = 'chloe'
-    game_character = 'Deadpool'
+    game_character = 'batman'
     end_result = 'Got too drunk!'
 
 
