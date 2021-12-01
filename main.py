@@ -66,6 +66,7 @@ if __name__ == '__main__':
         jsonScenesFile.close()
 
     # Let's run this to see if it works!
+    player_name = input('Hey there, whats your name? ')
     game_state = Game('Thomas the Tank Engine', 'Terry the barman')
 
     # The starting scenario!
