@@ -21,7 +21,7 @@
                 "1": {
                     "choice": "Dive in, elbows out",
                     "action": "",
-                    "nextScene": "birdInTheHand"
+                    "nextScene": "diveInElbowsOut"
                 },
                 "2": {
                     "choice": "Find a seat and wait till it dies down",
@@ -397,7 +397,7 @@
             }
         },
         "youWin": {
-            "intro": "You win the [Secret Tab]!  For life!\nYou [watch your prize], as the [superhero] pours it out for you.\nThis is it, this is what you wanted when you left home, you wanted to get served!"
+            "intro": "You win the [Secret Tab]!  For life!\nYou watch your [prize], as the [superhero] pours it out for you.\nThis is it, this is what you wanted when you left home, you wanted to get served!"
         },
         "template": {
             "intro": "",
