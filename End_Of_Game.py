@@ -61,11 +61,8 @@ class Query():
 
 #### create query to send player to player_info table database ####
     def send_player_data(self, player_name):
-<<<<<<< HEAD
         query_string = '''INSERT INTO player_info (Full_Name) VALUES (%s)'''
-=======
         query_string =  ('''INSERT INTO player_info (Full_Name) VALUES %s''')
->>>>>>> 9368c55a46cbefa93058ff38d25b65918352d811
         params = (player_name,)
         send_player_connection = self.game_db_query(query_string, params)
         return send_player_connection
