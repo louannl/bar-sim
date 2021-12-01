@@ -57,14 +57,14 @@ def scene_generator(scene_name: str, scene_data):
 
 
 if __name__ == '__main__':
-    # Let's run this to see if it works!
-    game_state = Game('Thomas the Tank Engine', 'Terry the barman')
-
     # Read JSON file and return Game Scenes i.e. game_scenes
-    with open("scenes.json") as jsonScenesFile:
+    with open("story/scenes.json") as jsonScenesFile:
         game_file = json.load(jsonScenesFile)
         game_scenes = game_file['scenes']
         jsonScenesFile.close()
+
+    # Let's run this to see if it works!
+    game_state = Game('Thomas the Tank Engine', 'Terry the barman')
 
     # The starting scenario!
     scenario = 'introScene'
