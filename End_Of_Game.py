@@ -1,6 +1,21 @@
 from database_connection import connect_db
 import datetime
 from datetime import datetime
+import mysql.connector
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+def connect_db():
+    con = mysql.connector.connect(
+        host = os.getenv('HOST'),
+        user = os.getenv('USER'),
+        password = os.getenv('PASSWORD'),
+        auth_plugin = os.getenv('AUTH_PLUGIN'),
+        database = os.getenv('DATABASE')
+    )
+    return con
 
 
 ######## creates a time stamp for game finish #########
