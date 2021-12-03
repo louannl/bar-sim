@@ -14,7 +14,7 @@ class Superhero():
         self.height=request["appearance"]["height"][0] #returns height in feet.
 
     def getName(self):
-        return self.getName()
+        return self.name()
 
 
 #EXAMPLE CALL TO CREATE USER CHARACTER
