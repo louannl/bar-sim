@@ -85,6 +85,8 @@ if __name__ == '__main__':
             print(error)
 
     # TODO: Run the endscene sequence!
+    player_name = input('Please enter your name: ')
+    end_result = ' ' #### will be entered when decide ending format/output
     finish = EndOfGame()
     game_time_string = finish.save()
     database_queries = Query()
