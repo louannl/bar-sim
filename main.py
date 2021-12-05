@@ -1,8 +1,6 @@
-from utils import EndOfGame, Query
 import json
 from os import error
 
-def main():
 # I don't like comments, but I'm adding them for the sake of the team.
 # TODO: Error handling i.e. try/except for user inputs etc.
 
@@ -66,7 +64,6 @@ if __name__ == '__main__':
         jsonScenesFile.close()
 
     # Let's run this to see if it works!
-    player_name = input('Hey there, whats your name? ')
     game_state = Game('Thomas the Tank Engine', 'Terry the barman')
 
     # The starting scenario!
@@ -85,15 +82,16 @@ if __name__ == '__main__':
             print(error)
 
     # TODO: Run the endscene sequence!
-    player_name = input('Please enter your name: ')
-    character_ID = confirmed_player_id
-    end_result = ' ' #### will be entered when decide ending format/output
 
-    finish = EndOfGame()
-    game_time_string = finish.save()
-    database_queries = Query()
-    database_queries.send_all_queries(player_name, character_ID, game_time_string, end_result)
-    ### need to define player_name, game_character, end_result ###
+player_name = input('Please enter your name: ')
+character_ID = str(confirmed_player_id)
+end_result = ' ' #### will be entered when decide ending format/output
+
+finish = EndOfGame()
+game_time_string = finish.save()
+database_queries = Query()
+database_queries.send_all_queries(player_name, character_ID, game_time_string, end_result)
+
 
 
 
