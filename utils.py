@@ -63,10 +63,10 @@ class Query():
 #### parametirisation of the SQL queries helps protect against SQL injenction ####
 
 #### create query to send game data to game_info table ####
-    def send_game_data(self, player_name, game_character, game_time_string, end_result):
-        query_string = ('''INSERT INTO game_info (Player_Name, Player_Character, Game_Result, Date_Of_Game)
+    def send_game_data(self, player_name, character_ID, game_time_string, end_result):
+        query_string = ('''INSERT INTO game_info (Player_Name, Player_Character_ID, Game_Result, Date_Of_Game)
          VALUES (%s,%s,%s,%s)''')
-        params = (player_name, game_character, end_result, game_time_string,)
+        params = (player_name, character_ID, end_result, game_time_string,)
         send_game_connection = self.game_db_query(query_string, params)
         return send_game_connection
 
@@ -111,10 +111,10 @@ class Query():
 
 ### function to ecompass all the queries that get sent to the database at the end of the game ###
 
-    def send_all_queries(self, player_name, game_character, game_time_string, end_result):
+    def send_all_queries(self, player_name, character_ID, game_time_string, end_result):
         player_checked = self.check_player(player_name)
         self.check_player_result(player_checked, player_name)
-        self.send_game_data(player_name, game_character, game_time_string, end_result)
+        self.send_game_data(player_name, character_ID, game_time_string, end_result)
         self.update_total_plays(player_name)
 
 
