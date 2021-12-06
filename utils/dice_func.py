@@ -3,27 +3,29 @@
 import random
 
 
-def dice_roll():
-    dice_result = random.randint(1, 6)
-    return dice_result
+class DiceDecider:
 
+    def __init__(self):
+        self.dice_result = None
 
-def odd_or_even(num):
-    if (num % 2) == 0:
-        return True
-    else:
-        return False
+    # self explanatory! its a simple dice
+    def dice_roll(self):
+        self.dice_result = random.randint(1, 6)
+        return self.dice_result
 
+    # I got rid of 50/50 odds bc it was just this with more input options
+    def is_even(self):
+        self.dice_roll()
+        return (self.dice_result % 2) == 0
 
-def try_action(action):
-    if odd_or_even(dice_roll()):
-        print("Success! You have managed to {}".format(action))
-    else:
-        try_new_thing = input("Oh no! You failed to {}, would you like to try something else? y/n ".format(action))
-        if try_new_thing == 'y':
-            action = input("What would you like to try instead? ")
-            try_action(action)
+    # this is for the pint element!
+    def pint_increase_decider(self):
+        self.dice_roll()
+        if self.dice_result <= 2:
+            return 1
+        elif self.dice_result < 5:
+            return 2
         else:
-            exit()
+            return 3
 
 
