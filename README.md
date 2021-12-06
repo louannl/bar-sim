@@ -2,6 +2,9 @@
 
 # About the project
 
+## Built with
+- Python3
+
 # Getting started
 ## Prerequisites
 
@@ -17,4 +20,6 @@ pip3 install -r requirements.txt
 ```
 3. Copy .env.example and rename it to .env and fill in the missing information 
 
-etc.etc.
+# Usage
+
+# Roadmap
