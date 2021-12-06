@@ -17,23 +17,22 @@ class Scene():
                 f'[{key}]', str(value))
         return transformed_intro
 
-    def render_choices(self):
+    def render_choices(self) -> str:
         rendered_options = ''
         for option in self.options:
             rendered_options += f'{option}. {self.options[option]["choice"]}\n'
         return rendered_options
 
-    def render_result(self, choice: int):
+    def render_result(self, choice: int) -> str:
         return self.options[str(choice)]['action']
 
 
-def get_options(scene):
+def get_choice(scene: Scene) -> int:
     print(scene.render_choices())
-    choice = int(input('Pick: '))
-    return choice
+    return int(input('Pick: '))
 
 
-def scene_generator(scene: Scene, game_state):
+def scene_generator(scene: Scene, game_state) -> str:
     scene_options = scene.return_options()
     print(scene.render_intro(game_state))
 
@@ -41,6 +40,6 @@ def scene_generator(scene: Scene, game_state):
         print('THE END')
         return 'end_scene'
 
-    users_choice = get_options(scene)
+    users_choice = get_choice(scene)
     print(scene.render_result(users_choice))
     return scene.options[str(users_choice)]['nextScene']
