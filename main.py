@@ -94,10 +94,10 @@ if __name__ == '__main__':
             print('Sorry, something went wrong')
 
     player_name = input('Please enter your name: ')
-    character_ID = str(confirmed_player_id)
-    end_result = ' '  #### will be entered when decide ending format/output
+    character_name = game_state.main_character
+    end_result = game_state.prize
 
     finish = EndOfGame()
     game_time_string = finish.save()
     database_queries = Query()
-    database_queries.send_all_queries(player_name, character_ID, game_time_string, end_result
+    database_queries.send_all_queries(player_name, character_name, game_time_string, end_result)
