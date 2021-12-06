@@ -1,3 +1,4 @@
+from utils import Query, EndOfGame
 import json
 from os import error
 
