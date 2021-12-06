@@ -2,6 +2,7 @@ from datetime import datetime
 import mysql.connector
 import os
 from dotenv import load_dotenv
+import requests
 
 load_dotenv()
 
@@ -178,6 +179,3 @@ class Query:
         self.check_player_result(player_checked, player_name)
         self.send_game_data(player_name, character_name, game_time_string, end_result)
         self.update_total_plays(player_name)
-
-
-
