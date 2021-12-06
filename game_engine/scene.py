@@ -1,3 +1,6 @@
+from game_engine.game import Game
+
+
 class Scene():
     def __init__(self, scene: dict) -> None:
         self.intro = scene['intro']
@@ -6,11 +9,13 @@ class Scene():
     def return_options(self) -> dict:
         return self.options
 
-    def render_intro(self, main_character, superhero, prize):
-        # Might be worth making this dynamic i.e. input game_state_characters (dict)
-        # Then replace all those characters dynamically in any intro
-        return self.intro.replace('[superhero]', superhero).replace(
-            '[main_character]', main_character).replace('[prize]', prize)
+    def render_intro(self, game_state: Game) -> str:
+        game_state_variables = vars(game_state).items()
+        transformed_intro = self.intro
+        for key, value in game_state_variables:
+            transformed_intro = transformed_intro.replace(
+                f'[{key}]', str(value))
+        return transformed_intro
 
     def render_choices(self):
         rendered_options = ''
@@ -29,10 +34,8 @@ def get_options(scene):
 
 
 def scene_generator(scene: Scene, game_state):
-    # TODO: This is really messy and has duplications that can be sorted out
     scene_options = scene.return_options()
-    print(scene.render_intro(game_state.main_character,
-          game_state.superhero, game_state.prize))
+    print(scene.render_intro(game_state))
 
     if not scene_options:
         print('THE END')
