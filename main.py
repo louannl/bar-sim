@@ -1,4 +1,3 @@
-from utils import EndOfGame, Query
 import json
 from os import error
 
@@ -7,11 +6,12 @@ from os import error
 
 
 class Game:
-    def __init__(self, main_character: str, barman: str) -> None:
+    def __init__(self, main_character: str, superhero: str) -> None:
         # TODO: Change this to auto-generate characters on initialization
-        # Then we can remove inputting main_char/barman
+        # Then we can remove inputting main_char/superhero
         self.main_character = main_character
-        self.barman = barman
+        self.superhero = superhero
+        self.prize = 'Stella Artois'
         self.pints = 0
 
     def increase_pints_randomly():
@@ -21,15 +21,15 @@ class Game:
 
 
 class Scene():
-    def __init__(self, intro: str, options) -> None:
+    def __init__(self, intro: str, options='') -> None:
         self.intro = intro
         self.options = options
 
-    def render_intro(self, main_character, barman):
+    def render_intro(self, main_character, superhero, prize):
         # Might be worth making this dynamic i.e. input game_state_characters (dict)
         # Then replace all those characters dynamically in any intro
-        return self.intro.replace('{{BARMAN}}', barman).replace(
-            '{{MAIN_CHARACTER}}', main_character)
+        return self.intro.replace('[superhero]', superhero).replace(
+            '[main_character]', main_character).replace('[prize]', prize)
 
     def render_choices(self):
         rendered_options = ''
@@ -41,20 +41,36 @@ class Scene():
         return self.options[str(choice)]['action']
 
 
+def get_options(scene):
+    print(scene.render_choices())
+    choice = int(input('Pick: '))
+    return choice
+
+
 def scene_generator(scene_name: str, scene_data):
+    # TODO: This is really messy and has duplications that can be sorted out
+    if 'options' not in scene_data[scene_name]:
+        scene = Scene(
+            scene_data[scene_name]['intro'],
+            ''
+        )
+        print(scene.render_intro(game_state.main_character,
+              game_state.superhero, game_state.prize))
+        print('THE END')
+        return 'end_scene'
     # Initialise scene with scene info
     scene = Scene(
         scene_data[scene_name]['intro'],
         scene_data[scene_name]['options']
     )
     # TODO: As mentioned above, we can look at making this dynamic
-    print(scene.render_intro(game_state.main_character, game_state.barman))
-    print(scene.render_choices())
-    choice = int(input('Pick: '))
-    print(scene.render_result(choice))
+    print(scene.render_intro(game_state.main_character,
+          game_state.superhero, game_state.prize))
+    users_choice = get_options(scene)
+    print(scene.render_result(users_choice))
     # TODO: Add functionality so if a choice has more than one nextScene (dependant)
     # on an event etc. this will run the event then return the success/failure scene
-    return scene.options[str(choice)]['nextScene']
+    return scene.options[str(users_choice)]['nextScene']
 
 
 if __name__ == '__main__':
@@ -64,35 +80,24 @@ if __name__ == '__main__':
         game_scenes = game_file['scenes']
         jsonScenesFile.close()
 
-    # Let's run this to see if it works!
-    game_state = Game('Thomas the Tank Engine', 'Terry the barman')
+    # # Let's run this to see if it works!
+    game_state = Game('Thomas the Tank Engine', 'Deadpool')
 
-    # The starting scenario!
+    # # The starting scenario!
     scenario = 'introScene'
-    # We don't have endScene or error handling, so I've limited this to avoid
-    # an infinite loop!
-    count = 0
-    while scenario != 'endScene':
+
+    while scenario != 'end_scene':
         try:
-            if count > 5:
-                # To avoid an infinite loop
-                break
             scenario = scene_generator(scenario, game_scenes)
-            count += 1
         except error:
-            print(error)
+            # print(error)
+            print('Sorry, something went wrong')
 
-    # TODO: Run the endscene sequence!
+    player_name = input('Please enter your name: ')
+    character_ID = str(confirmed_player_id)
+    end_result = ' '  #### will be entered when decide ending format/output
 
-player_name = input('Please enter your name: ')
-character_ID = str(confirmed_player_id)
-end_result = ' ' #### will be entered when decide ending format/output
-
-finish = EndOfGame()
-game_time_string = finish.save()
-database_queries = Query()
-database_queries.send_all_queries(player_name, character_ID, game_time_string, end_result)
-
-
-
-
+    finish = EndOfGame()
+    game_time_string = finish.save()
+    database_queries = Query()
+    database_queries.send_all_queries(player_name, character_ID, game_time_string, end_result
