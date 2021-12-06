@@ -2,7 +2,7 @@ import json
 from os import error
 
 from game_engine.game import Game
-from game_engine.scene import scene_generator
+from game_engine.scene import Scene, scene_generator
 
 with open("story/scenes.json") as jsonScenesFile:
     game_file = json.load(jsonScenesFile)
@@ -14,7 +14,7 @@ game_state = Game()
 scenario = 'introScene'
 while scenario != 'end_scene':
     try:
-        scenario = scene_generator(scenario, game_scenes, game_state)
+        scenario = scene_generator(Scene(game_scenes[scenario]), game_state)
     except error:
         # print(error)
         print('Sorry, something went wrong')

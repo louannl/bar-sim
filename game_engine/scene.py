@@ -1,7 +1,10 @@
 class Scene():
-    def __init__(self, intro: str, options='') -> None:
-        self.intro = intro
-        self.options = options
+    def __init__(self, scene: dict) -> None:
+        self.intro = scene['intro']
+        self.options = scene['options']
+
+    def return_options(self) -> dict:
+        return self.options
 
     def render_intro(self, main_character, superhero, prize):
         # Might be worth making this dynamic i.e. input game_state_characters (dict)
@@ -25,27 +28,16 @@ def get_options(scene):
     return choice
 
 
-def scene_generator(scene_name: str, scene_data, game_state):
+def scene_generator(scene: Scene, game_state):
     # TODO: This is really messy and has duplications that can be sorted out
-    if 'options' not in scene_data[scene_name]:
-        scene = Scene(
-            scene_data[scene_name]['intro'],
-            ''
-        )
-        print(scene.render_intro(game_state.main_character,
-              game_state.superhero, game_state.prize))
-        print('THE END')
-        return 'end_scene'
-    # Initialise scene with scene info
-    scene = Scene(
-        scene_data[scene_name]['intro'],
-        scene_data[scene_name]['options']
-    )
-    # TODO: As mentioned above, we can look at making this dynamic
+    scene_options = scene.return_options()
     print(scene.render_intro(game_state.main_character,
           game_state.superhero, game_state.prize))
+
+    if not scene_options:
+        print('THE END')
+        return 'end_scene'
+
     users_choice = get_options(scene)
     print(scene.render_result(users_choice))
-    # TODO: Add functionality so if a choice has more than one nextScene (dependant)
-    # on an event etc. this will run the event then return the success/failure scene
     return scene.options[str(users_choice)]['nextScene']
