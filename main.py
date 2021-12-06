@@ -9,12 +9,9 @@ with open("story/scenes.json") as jsonScenesFile:
     game_scenes = game_file['scenes']
     jsonScenesFile.close()
 
-# # Let's run this to see if it works!
 game_state = Game()
 
-# # The starting scenario!
 scenario = 'introScene'
-
 while scenario != 'end_scene':
     try:
         scenario = scene_generator(scenario, game_scenes, game_state)

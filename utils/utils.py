@@ -45,7 +45,8 @@ def set_user_character():
     print("Which player would you like to select:")
     # can we display all player options at once? one at a time seems like poor UX
     for player_no, player_info in player_options.items():
-        player_select = input(f"Player {player_no}: {player_info['name']}?\nEnter y to accept or n to keep browsing:")
+        player_select = input(
+            f"Player {player_no}: {player_info['name']}?\nEnter y to accept or n to keep browsing:")
         if player_select == "y":
             confirmed_player_id = player_info["id"]
             print("done")
@@ -66,8 +67,3 @@ def set_user_character():
         print("Thank you for playing Get Served.")
         # I've made it an exit command as SystemExit came up with a warning that the statement did nothing
         exit()
-
-
-# this gave me {'response': 'error', 'error': 'access denied'}
-print(get_character(140))
-
