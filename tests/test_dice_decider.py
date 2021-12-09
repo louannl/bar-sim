@@ -1,6 +1,6 @@
 from unittest import main, TestCase
 
-from utils import DiceDecider
+from utils.dice_func import DiceDecider
 
 
 class DiceDeciderTestCase(TestCase):
