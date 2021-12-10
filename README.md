@@ -18,3 +18,11 @@ pip3 install -r requirements.txt
 3. Copy .env.example and rename it to .env and fill in the missing information 
 
 etc.etc.
+
+## Testing
+To run all unit tests, the tests directory needs to have an empty `__init__.py` file.***No idea why!
+
+You run the following command: 
+```
+python -m unittest
+```
