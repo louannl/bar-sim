@@ -1,4 +1,4 @@
-from utils import Query, EndOfGame
+from save.sendqueries import endgame
 import json
 from os import error
 
@@ -95,10 +95,6 @@ if __name__ == '__main__':
             print('Sorry, something went wrong')
 
     player_name = input('Please enter your name: ')
-    character_name = game_state.main_character
-    end_result = game_state.prize
-
-    finish = EndOfGame()
-    game_time_string = finish.save()
-    database_queries = Query()
-    database_queries.send_all_queries(player_name, character_name, game_time_string, end_result)
+    character_name = 'antman'
+    end_result = 'wine'
+    endgame(player_name, character_name, end_result)
