@@ -1,6 +1,5 @@
 from unittest import main, TestCase
-
-from utils.dice_func import DiceDecider
+from utils.dice_decider import DiceDecider
 
 
 class DiceDeciderTestCase(TestCase):
@@ -30,17 +29,17 @@ class DiceDeciderTestCase(TestCase):
 
     def test_pint_increase_decider(self):
         test_decider = DiceDecider()
-        result = test_decider.pint_increase_decider(1)
+        result = test_decider.decide_increase_amount(1)
         self.assertEqual(1, result)
-        result = test_decider.pint_increase_decider(2)
+        result = test_decider.decide_increase_amount(2)
         self.assertEqual(1, result)
-        result = test_decider.pint_increase_decider(3)
+        result = test_decider.decide_increase_amount(3)
         self.assertEqual(2, result)
-        result = test_decider.pint_increase_decider(4)
+        result = test_decider.decide_increase_amount(4)
         self.assertEqual(2, result)
-        result = test_decider.pint_increase_decider(5)
+        result = test_decider.decide_increase_amount(5)
         self.assertEqual(3, result)
-        result = test_decider.pint_increase_decider(6)
+        result = test_decider.decide_increase_amount(6)
         self.assertEqual(3, result)
 
 
