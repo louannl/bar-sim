@@ -95,6 +95,6 @@ if __name__ == '__main__':
             print('Sorry, something went wrong')
 
     player_name = input('Please enter your name: ')
-    character_name = 'antman'
-    end_result = 'wine'
+    character_name = game_state.main_character
+    end_result = game_state.prize
     endgame(player_name, character_name, end_result)
