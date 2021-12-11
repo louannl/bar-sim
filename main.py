@@ -1,27 +1,33 @@
 import json
+import random
 from os import error
+
+from hero_class import Superhero
+from utils.utils import get_character
+from utils.dice_decider import DiceDecider
+
 
 # I don't like comments, but I'm adding them for the sake of the team.
 # TODO: Error handling i.e. try/except for user inputs etc.
 
 
 class Game:
-    def __init__(self, main_character: str, superhero: str) -> None:
-        # TODO: Change this to auto-generate characters on initialization
-        # Then we can remove inputting main_char/superhero
-        self.main_character = main_character
-        self.superhero = superhero
+    def __init__(self, main_character: str) -> None:
+        main_character = main_character  # Superhero(get_character(set_user_character()))  #BUT THIS WILL ASK USER FOR INPUTS
+        superhero = Superhero(get_character(str(random.randint(1, 731))))
+        self.main_character = main_character.getName()
+        self.superhero = superhero.getName()
         self.prize = 'Stella Artois'
         self.pints = 0
 
     def increase_pints_randomly():
-        # TODO: roll dice to increase pints
-        # e.g. 1-2: 1, 2-4: 2, 5-6: 3 pints
-        pass
+        roll_of_dice = DiceDecider()
+        num = roll_of_dice.dice_roll()
+        roll_of_dice.decide_increase_amount(num)
 
 
 class Scene():
-    def __init__(self, intro: str, options='') -> None:
+    def __init__(self, intro: str, options = '') -> None:
         self.intro = intro
         self.options = options
 
@@ -55,7 +61,7 @@ def scene_generator(scene_name: str, scene_data):
             ''
         )
         print(scene.render_intro(game_state.main_character,
-              game_state.superhero, game_state.prize))
+                                 game_state.superhero, game_state.prize))
         print('THE END')
         return 'end_scene'
     # Initialise scene with scene info
@@ -65,7 +71,7 @@ def scene_generator(scene_name: str, scene_data):
     )
     # TODO: As mentioned above, we can look at making this dynamic
     print(scene.render_intro(game_state.main_character,
-          game_state.superhero, game_state.prize))
+                             game_state.superhero, game_state.prize))
     users_choice = get_options(scene)
     print(scene.render_result(users_choice))
     # TODO: Add functionality so if a choice has more than one nextScene (dependant)
