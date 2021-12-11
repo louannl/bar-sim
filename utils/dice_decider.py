@@ -21,3 +21,8 @@ class DiceDecider:
 
     def increase_pints_on_roll(self):
         return self.pint_increase_decider(self.dice_roll())
+
+
+roll_of_dice = DiceDecider()
+num = DiceDecider.dice_roll()
+DiceDecider.decide_increase_amount(num)
