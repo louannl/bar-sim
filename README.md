@@ -22,4 +22,12 @@ pip3 install -r requirements.txt
 
 # Usage
 
+## Testing
+To run all unit tests, the tests directory needs to have an empty `__init__.py` file.
+
+You run the following command: 
+```
+python -m unittest
+```
+
 # Roadmap
