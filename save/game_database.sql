@@ -19,6 +19,3 @@ Game_Result VARCHAR(55) NOT NULL,
 Date_Of_Game VARCHAR (55) NOT NULL,
 foreign key (Player_Name) references player_info(Full_Name)
 ) ENGINE InnoDB;
-
-Select * FROM game_info;
-SELECT * FROM player_info;
