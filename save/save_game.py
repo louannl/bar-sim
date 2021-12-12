@@ -1,6 +1,7 @@
 from datetime import datetime
 
-class EndOfGame:
+
+class SaveGame:
     def save_game(self):
         self.game_time = datetime.now()
         return self.game_time

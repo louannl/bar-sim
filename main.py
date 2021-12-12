@@ -1,3 +1,5 @@
+from save.check_player import CheckPlayer
+from save.query import Query
 from save.sendqueries import endgame
 import json
 from os import error

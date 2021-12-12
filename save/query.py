@@ -1,10 +1,11 @@
 from save.connection import connect_db, GameDBConnection
 
+
 class Query:
     def __init__(self):
         pass
 
-    def game_db_query(self, db_query, params):
+    def game_db_query(self, db_query: str, params: list):
         db_connection = {}
         try:
             db_connection = connect_db()
@@ -17,7 +18,7 @@ class Query:
             raise GameDBConnection('Information not available!')
         finally:
             if db_connection:
-               db_connection.close()
+                db_connection.close()
         return result
 
     # parameterization of the SQL queries helps protect against SQL injection
@@ -49,7 +50,6 @@ class Query:
         params = (player_name, character_name, end_result, game_time_string,)
         send_game_connection = self.game_db_query(query_string, params)
         return send_game_connection
-
 
     def update_total_plays(self, player_name):
         query_string = '''UPDATE player p
