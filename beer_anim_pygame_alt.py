@@ -50,7 +50,7 @@ class BeerPourSprite(pygame.sprite.Sprite):
     def time_dependency_update(self, frame_int):
         """
         Does an update of the sprite image every tenth of a second.
-        Parameter: frame_int - interval between frames.
+        Parameter: frame_int - the interval between frames.
         """
         if self.velocity.x > 0:  # Use right hand images if sprite motion is to the right
             self.images = self.images_right

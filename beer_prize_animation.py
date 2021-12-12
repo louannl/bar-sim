@@ -6,7 +6,7 @@ import pyganim
 
 pygame.init()
 windowSurface = pygame.display.set_mode((427, 240), 0, 32)
-pygame.display.set_caption("This is the beer you've been waiting for")
+pygame.display.set_caption("This is the beer you've been looking for")
 
 beer_animation = pyganim.PygAnimation(
     [(r"C:\Users\User\Downloads\bar-sim-main(1)\bar-sim-main\beer_prize\beer_pour0000.png", 100),
