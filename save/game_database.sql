@@ -1,24 +1,25 @@
-DROP DATABASE IF EXISTS Game;
-CREATE DATABASE Game;
+DROP DATABASE IF EXISTS bar_game;
+CREATE DATABASE bar_game;
 
-USE Game;
+USE bar_game;
+
 DROP TABLE IF EXISTS player_info;
-CREATE TABLE player_info (
-Player_ID INT auto_increment NOT NULL,
-Full_Name VARCHAR(55) NOT NULL primary key,
-Total_Plays varchar(55) NULL,
-key (Player_ID)
+
+CREATE TABLE player (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(55) NOT NULL,
+    total_plays INT DEFAULT 0
 ) ENGINE InnoDB;
 
-DROP TABLE IF EXISTS game_info;
-CREATE TABLE game_info (
-Game_ID INT auto_increment key,
-Player_Name VARCHAR(55) NOT NULL,
-Player_Character VARCHAR(55) NULL,
-Game_Result VARCHAR(55) NOT NULL,
-Date_Of_Game VARCHAR (55) NOT NULL,
-foreign key (Player_Name) references player_info(Full_Name)
-) ENGINE InnoDB;
+DROP TABLE IF EXISTS game;
 
-Select * FROM game_info;
-SELECT * FROM player_info;
+CREATE TABLE game (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    player_id BIGINT,
+    player_character VARCHAR(55) NULL,
+    won BOOL NOT NULL,
+    date DATETIME NOT NULL,
+    FOREIGN KEY (player_id)
+        REFERENCES player(id)
+        ON DELETE CASCADE
+) ENGINE InnoDB;
