@@ -2,6 +2,9 @@
 
 # About the project
 
+## Built with
+- Python3
+
 # Getting started
 ## Prerequisites
 
@@ -17,4 +20,14 @@ pip install -r requirements.txt
 ```
 3. Copy .env.example and rename it to .env and fill in the missing information 
 
-etc.etc.
+# Usage
+
+## Testing
+To run all unit tests, the tests directory needs to have an empty `__init__.py` file.
+
+You run the following command: 
+```
+python -m unittest
+```
+
+# Roadmap

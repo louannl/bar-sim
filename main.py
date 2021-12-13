@@ -4,6 +4,7 @@ from save.sendqueries import endgame
 import json
 from os import error
 
+<<<<<<< HEAD
 # I don't like comments, but I'm adding them for the sake of the team.
 # TODO: Error handling i.e. try/except for user inputs etc.
 
@@ -100,3 +101,22 @@ if __name__ == '__main__':
     character_name = game_state.main_character
     end_result = game_state.prize
     endgame(player_name, character_name, end_result)
+=======
+from game_engine.game import Game
+from game_engine.scene import Scene, scene_generator
+
+with open("story/scenes.json") as jsonScenesFile:
+    game_file = json.load(jsonScenesFile)
+    game_scenes = game_file['scenes']
+    jsonScenesFile.close()
+
+game_state = Game()
+
+scenario = 'introScene'
+while scenario != 'end_scene':
+    try:
+        scenario = scene_generator(Scene(game_scenes[scenario]), game_state)
+    except error:
+        # print(error)
+        print('Sorry, something went wrong')
+>>>>>>> main
