@@ -2,6 +2,7 @@ import os
 from sys import exit
 
 from dotenv import load_dotenv
+from sys import exit
 import requests
 
 load_dotenv()
@@ -28,7 +29,6 @@ def get_character(num):
 
 def set_user_character():
     # dict should maybe exist outside of the function, perhaps in the db?
-
     player_options = {
         1: {'name': 'Buffy',
             'id': 140},
@@ -41,7 +41,6 @@ def set_user_character():
     }
 
     print("Which player would you like to select:")
-    # can we display all player options at once? one at a time seems like poor UX
     for player_no, player_info in player_options.items():
         player_select = input(f"Player {player_no}: {player_info['name']}?\nEnter 'y' to select or 'n' to keep browsing: ")
         if player_select == "y":
@@ -50,12 +49,9 @@ def set_user_character():
         if player_select == "n":
             pass
         else:
-            print(
-                "I'm sorry that is not a recognised option. To select a player, you need to please enter 'y', to keep browsing enter 'n'. "
-                "Let's try again.")
+            print("I'm sorry that is not a recognised option. To select a player, you need to please enter 'y', to keep browsing enter 'n'. \nLet's try again.")
             set_user_character()
-    browse_again = input(
-        "You have browsed through all of our available player options. Do you want to try again? Enter 'y' to browse again or any key to exit the game.\n")
+    browse_again = input("You have browsed through all of our available player options. \nDo you want to try again? Enter 'y' to browse again or any key to exit the game.")
     if browse_again == "y":
         print("Which player would you like to select: ")
         set_user_character()
