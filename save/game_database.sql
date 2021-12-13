@@ -18,7 +18,7 @@ CREATE TABLE game (
     player_id BIGINT,
     player_character VARCHAR(55) NULL,
     won BOOL NOT NULL,
-    date DATETIME NOT NULL,
+    game_date DATETIME NOT NULL,
     FOREIGN KEY (player_id)
         REFERENCES player(id)
         ON DELETE CASCADE

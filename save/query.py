@@ -14,14 +14,16 @@ class Query:
             result = cursor.fetchall()
             cursor.close()
             db_connection.commit()
-        except Exception:
-            raise GameDBConnection('Information not available!')
+        except Exception as error:
+            print(error)
+            raise error
         finally:
             if db_connection:
                 db_connection.close()
         return result
 
     # parameterization of the SQL queries helps protect against SQL injection
+
     # def check_result(self, query_result, player_name):
     #     if query_result == 0:
     #         self.send_player_data(player_name)
