@@ -1,5 +1,3 @@
-from datetime import datetime
-import mysql.connector
 import os
 from dotenv import load_dotenv
 import requests
@@ -67,9 +65,11 @@ def set_user_character():
         set_user_character()
     else:
         print("Thank you for playing Get Served.")
+
         # I've made it an exit command as SystemExit came up with a warning that the statement did nothing
-        exit()
-<<<<<<< HEAD
+<< << << < HEAD
+exit()
+<< << << < HEAD
 
 
 # this gave me {'response': 'error', 'error': 'access denied'}
@@ -181,7 +181,13 @@ class Query:
         player_checked = self.check_player(player_name)
         self.check_player_result(player_checked, player_name)
         player_id = self.get_player_id()
-        self.send_game_data(player_id, character_name, game_time_string, end_result)
+        self.send_game_data(player_id, character_name,
+                            game_time_string, end_result)
         self.update_total_plays(player_id)
-=======
->>>>>>> main
+
+
+== == == =
+>>>>>> > main
+== == == =
+exit()
+>>>>>> > origin/database
