@@ -43,8 +43,7 @@ def set_user_character():
     print("Which player would you like to select:")
     # can we display all player options at once? one at a time seems like poor UX
     for player_no, player_info in player_options.items():
-        player_select = input(
-            f"Player {player_no}: {player_info['name']}?\nEnter 'y' to select or 'n' to keep browsing: ")
+        player_select = input(f"Player {player_no}: {player_info['name']}?\nEnter 'y' to select or 'n' to keep browsing: ")
         if player_select == "y":
             confirmed_player_id = player_info["id"]
             return confirmed_player_id

@@ -10,6 +10,15 @@ from utils.dice_decider import DiceDecider
 # I don't like comments, but I'm adding them for the sake of the team.
 # TODO: Error handling i.e. try/except for user inputs etc.
 
+from game_engine.game import Game
+from game_engine.scene import Scene, scene_generator
+
+
+with open("story/scenes.json") as jsonScenesFile:
+    game_file = json.load(jsonScenesFile)
+    game_scenes = game_file['scenes']
+    jsonScenesFile.close()
+
 
 class Game:
     def __init__(self, main_character: str) -> None:
@@ -98,3 +107,14 @@ if __name__ == '__main__':
         except error:
             # print(error)
             print('Sorry, something went wrong')
+
+game_state = Game()
+
+scenario = 'introScene'
+while scenario != 'end_scene':
+    try:
+        scenario = scene_generator(Scene(game_scenes[scenario]), game_state)
+    except error:
+        # print(error)
+        print('Sorry, something went wrong')
+
