@@ -1,6 +1,3 @@
-from save.check_player import CheckPlayer
-from save.query import Query
-from save.sendqueries import endgame
 import json
 from os import error
 
@@ -22,7 +19,6 @@ while scenario != 'end_scene':
         # print(error)
         print('Sorry, something went wrong')
 
-# player_name = input('Please enter your name: ')
-# character_name = game_state.main_character
+# TODO: Uncomment this
 # end_result = game_state.prize
 # endgame(player_name, character_name, end_result)

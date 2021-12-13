@@ -5,7 +5,7 @@ class Query:
     def __init__(self):
         pass
 
-    def game_db_query(self, db_query: str, params: list):
+    def db_connect(self, db_query: str, params: list):
         db_connection = {}
         try:
             db_connection = connect_db()
@@ -22,16 +22,10 @@ class Query:
         return result
 
     # parameterization of the SQL queries helps protect against SQL injection
-    def check_result(self, query_result, player_name):
-        if query_result == 0:
-            self.send_player_data(player_name)
-        return query_result
-
-    def send_player_data(self, player_name):
-        query_string = '''INSERT INTO player (full_name) VALUES (%s)'''
-        params = (player_name,)
-        send_player_connection = self.game_db_query(query_string, params)
-        return send_player_connection
+    # def check_result(self, query_result, player_name):
+    #     if query_result == 0:
+    #         self.send_player_data(player_name)
+    #     return query_result
 
     def get_id(self, player_name):
         query_string = ('''INSERT INTO game (player_id)
@@ -39,7 +33,7 @@ class Query:
         FROM  player
         WHERE full_name = %s ''')
         params = (player_name,)
-        send_get_id_connect = self.game_db_query(query_string, params)
+        send_get_id_connect = self.db_connect(query_string, params)
         return send_get_id_connect
 
     def insert_game(self, player_name, character_name, end_result, game_time_string):
@@ -48,7 +42,7 @@ class Query:
         ORDER BY id DESC
         LIMIT 1'''
         params = (player_name, character_name, end_result, game_time_string,)
-        send_game_connection = self.game_db_query(query_string, params)
+        send_game_connection = self.db_connect(query_string, params)
         return send_game_connection
 
     def update_total_plays(self, player_name):
@@ -60,5 +54,5 @@ class Query:
         SET p.total_plays = g.player_count
         WHERE full_name = %s'''
         params = (player_name,)
-        update_total_play = self.game_db_query(query_string, params)
+        update_total_play = self.db_connect(query_string, params)
         return update_total_play
