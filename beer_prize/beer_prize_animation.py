@@ -86,4 +86,4 @@ def play_beer():
 
 
 if __name__ == '__main__':
-    main()
+    play_beer()
