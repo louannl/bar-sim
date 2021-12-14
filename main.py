@@ -3,8 +3,7 @@ from os import error
 
 from game_engine.game import Game
 from game_engine.scene import Scene, scene_generator
-from save.player import CheckPlayer, CreatePlayer
-from save.query import Query
+from utils.return_player_id import create_or_return_player_id
 
 
 with open("story/scenes.json") as jsonScenesFile:
@@ -13,21 +12,9 @@ with open("story/scenes.json") as jsonScenesFile:
     jsonScenesFile.close()
 
 game_state = Game()
-# Getting player name
+
 player_name = input("Please enter your name: ")
-# Checking if player already exists
-player = CheckPlayer(Query())
-player_exists = player.check_player(player_name)
-# getting player id
-if not player_exists:
-    print(player_exists, "if not")
-    new_player = CreatePlayer(Query())
-    new_player.create_player(player_name)
-    player_exists = player.check_player(player_name)
-
-game_state.update_player_id(player_exists[0][0])
-print(game_state.player_id)
-
+create_or_return_player_id(player_name, game_state)
 
 scenario = 'introScene'
 while scenario != 'end_scene':
@@ -37,6 +24,3 @@ while scenario != 'end_scene':
         # print(error)
         print('Sorry, something went wrong')
 
-# TODO: Uncomment this
-# end_result = game_state.prize
-# endgame(player_name, character_name, end_result)
