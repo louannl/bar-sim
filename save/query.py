@@ -1,4 +1,4 @@
-from save.connection import connect_db, GameDBConnection
+from save.connection import connect_db
 
 
 class Query:
