@@ -10,7 +10,7 @@ FPS = 60
 screen = pygame.display.set_mode(SIZE)
 pygame.display.set_caption("This is the beer you're looking for.")
 clock = pygame.time.Clock()
-path = r"C:\Users\User\Downloads\animation-master\beer_prize"
+path = r"C:\Users\User\Downloads\bar-sim-main(2)\bar-sim-main\beer_prize\Bitmaps"
 
 
 def load_images():
@@ -66,7 +66,7 @@ class BeerPourSprite(pygame.sprite.Sprite):
         self.rect.move_ip(*self.velocity)
 
 
-def main():
+def play_beer():
     beer_stills = load_images()
     player = BeerPourSprite(position=(0, 0), images=beer_stills)
     all_sprites = pygame.sprite.Group(player)  # Making an expandable sprite group and adding 'player' as one.

@@ -1,5 +1,6 @@
 import json
 from os import error
+from beer_prize.beer_prize_animation import play_beer
 
 from game_engine.game import Game
 from game_engine.scene import Scene, scene_generator
@@ -18,3 +19,5 @@ while scenario != 'end_scene':
     except error:
         # print(error)
         print('Sorry, something went wrong')
+
+play_beer()

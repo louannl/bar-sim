@@ -1,7 +1,8 @@
 from game_engine.game import Game
+from beer_prize.beer_prize_animation import load_images, BeerPourSprite, main
 
 
-class Scene():
+class Scene:
     def __init__(self, scene: dict) -> None:
         self.intro = scene['intro']
         self.options = scene['options']
@@ -38,6 +39,9 @@ def scene_generator(scene: Scene, game_state) -> str:
 
     if not scene_options:
         print('THE END')
+        # end_anim1 = load_images()
+        # sprite = BeerPourSprite((0, 32), end_anim1)
+        # end_anim2 = sprite.beer_anim()
         return 'end_scene'
 
     users_choice = get_choice(scene)
