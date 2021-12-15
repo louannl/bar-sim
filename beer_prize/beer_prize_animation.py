@@ -35,9 +35,8 @@ class BeerPourSprite(pygame.sprite.Sprite):
                     images - animation still images to render as animation.
         """
         super(BeerPourSprite, self).__init__()
-        size = (0, 32)  # Matching the pygame rect object size to the still images.
         self.beer_animation = False
-        self.rect = pygame.Rect(position, size)
+        self.rect = pygame.Rect(position, (0, 32))
         self.images = images
         self.images_right = images
         self.sprites = load_images()
