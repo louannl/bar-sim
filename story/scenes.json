@@ -367,14 +367,34 @@
             "intro": "A blaze of light fills the snug and it fades to a glow, halo-ing a [superhero], who greets you and poses a [quiz / riddle].\n'Do you accept the challenge?'\nRendlesham notices you're at loss.\n'Say yes - if you wanna chance to win the [Secret Tab]!'\nYou accept and the [superhero] starts the [countdown].",
             "options": {
                 "1": {
-                    "choice": "You don't solve it or run out of time",
+                    "choice": "Let the dice decide your fate.",
                     "action": "",
-                    "nextScene": "loseRiddle"
+                    "nextScene": "dice"
                 },
                 "2": {
-                    "choice": "You win",
+                    "choice": "Solve the Riddle",
                     "action": "",
-                    "nextScene": "youWin"
+                    "nextScene": "riddle"
+                }
+            }
+        },
+        "riddle": {
+            "intro": "[insult]\nNot sure why you think you're so smart. But here's the riddle (or is it?)...\nWhat is the definition of an Algorithm?",
+            "options": {
+                "1": {
+                    "choice": "A process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer.",
+                    "action": "",
+                    "nextScene": "lose"
+                },
+                "2": {
+                    "choice": "A word used by a programmer when they don't want to explain what they did.",
+                    "action": "",
+                    "nextScene": "win"
+                },
+                "3": {
+                    "choice": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                    "action": "",
+                    "nextScene": "lose"
                 }
             }
         },
@@ -388,7 +408,7 @@
                 }
             }
         },
-        "loseRiddle": {
+        "lose": {
             "intro": "There's a flash of light and when your eyes adjust, you see it's just you and Rendlesham back in the snug.\n'Here, you haven't got the [Secret Tab], but you deserve something for being a good sport.'\nHe slides over a fresh, new pint and you have it while he tells you [superhero] stories.\nWhen kicking-out time comes, you're still thirsty, but you say your goodbyes and",
             "options": {
                 "1": {
@@ -398,7 +418,7 @@
                 }
             }
         },
-        "youWin": {
+        "win": {
             "intro": "You win the [Secret Tab]!  For life!\nYou watch your [prize], as the [superhero] pours it out for you.\nThis is it, this is what you wanted when you left home, you wanted to get served!",
             "options": {}
         },

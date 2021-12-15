@@ -1,3 +1,6 @@
+from utils.utils import random_insult
+
+
 class Game:
     def __init__(self) -> None:
         '''
@@ -9,6 +12,7 @@ class Game:
         self.superhero = 'Deadpool'
         self.prize = 'Stella Artois'
         self.pints = 0
+        self.insult = random_insult()
 
     def update_main_character(self, character: str) -> None:
         self.main_character = character
