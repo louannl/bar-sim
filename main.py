@@ -3,7 +3,7 @@ from os import error
 
 from game_engine.game import Game
 from game_engine.scene import Scene, scene_generator
-from utils.return_player_id import create_or_return_player_id
+from utils.save_helpers import create_or_return_player_id
 
 
 with open("story/scenes.json") as jsonScenesFile:

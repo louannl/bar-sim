@@ -10,9 +10,25 @@ class Game:
         self.superhero = 'Deadpool'
         self.prize = 'Stella Artois'
         self.pints = 0
+        self.won = False
 
     def update_main_character(self, character: str) -> None:
         self.main_character = character
 
     def update_player_id(self, player_id: int) -> None:
         self.player_id = player_id
+
+    def get_pints(self) -> int:
+        return self.pints
+
+    def get_player_id(self) -> int:
+        return self.player_id
+
+    def get_character(self) -> str:
+        return self.main_character
+
+    def get_win(self) -> bool:
+        return self.won
+
+    def victory(self) -> None:
+        self.won = True
