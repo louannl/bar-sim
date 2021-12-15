@@ -30,7 +30,7 @@
                 },
                 "3": {
                     "choice": "Leave|Go home",
-                    "action": "{{insult}}",
+                    "action": "",
                     "nextScene": "goHome"
                 }
             }
