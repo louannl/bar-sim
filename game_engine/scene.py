@@ -1,7 +1,7 @@
 from game_engine.game import Game
 
 
-class Scene():
+class Scene:
     def __init__(self, scene: dict) -> None:
         self.intro = scene['intro']
         self.options = scene['options']
