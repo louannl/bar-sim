@@ -11,14 +11,13 @@ class Game:
         self.player_id = None
         self.main_character = 'Thomas The Tank Engine'
         self.superhero = 'Deadpool'
-        self.pints = 0
+        self.pints = 9
         self.won = False
         self.prize = get_random_beer()
         self.insult = random_insult()
 
     def update_main_character(self, character: str) -> None:
         self.main_character = character
-
 
     def update_player_id(self, player_id: int) -> None:
         self.player_id = player_id
