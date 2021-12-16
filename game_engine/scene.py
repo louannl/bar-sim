@@ -1,3 +1,4 @@
+from game_engine.character import Character
 from game_engine.game import Game
 from utils.dice_decider import DiceDecider
 
@@ -14,6 +15,8 @@ class Scene:
         game_state_variables = vars(game_state).items()
         transformed_intro = self.intro
         for key, value in game_state_variables:
+            if isinstance(value, Character):
+                value = value.getName()
             transformed_intro = transformed_intro.replace(
                 f'[{key}]', str(value))
         return transformed_intro

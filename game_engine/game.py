@@ -4,22 +4,26 @@ from utils.utils import get_random_beer, random_insult
 
 
 class Game:
-    def __init__(self) -> None:
+    def __init__(self, main_character: Character, superhero: Character) -> None:
         """
         These variables are used when preparing the scenes, so make sure the
         name of the variable matches the story scenes when necessary i.e.
         [main_character] [superhero] etc.
         """
         self.player_id = None
-        self.main_character = 'Thomas The Tank Engine'
-        self.superhero = 'Deadpool'
+        # These are defaults
+        self.main_character = main_character
+        self.superhero = superhero
         self.pints = 9
         self.won = False
         self.prize = get_random_beer()
         self.insult = random_insult()
 
-    def update_main_character(self, character: str) -> None:
+    def update_main_character(self, character: Character) -> None:
         self.main_character = character
+
+    def update_superhero(self, superhero: Character) -> None:
+        self.superhero = superhero
 
     def update_player_id(self, player_id: int) -> None:
         self.player_id = player_id
@@ -30,8 +34,8 @@ class Game:
     def get_player_id(self) -> int:
         return self.player_id
 
-    def get_character(self) -> str:
-        return self.main_character
+    def get_character_name(self) -> str:
+        return self.main_character.getName()
 
     def get_win(self) -> bool:
         return self.won
