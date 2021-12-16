@@ -18,13 +18,18 @@ def create_or_return_player_id(player_name: str, game_state: Game) -> None:
 
 def save_game(game_state: Game) -> None:
     game = CreateGame(Query())
-    game.create_game_save(game_state.get_player_id(), game_state.get_character(), game_state.get_win(), game_state.get_pints())
+    game.create_game_save(
+        game_state.get_player_id(),
+        game_state.get_character(),
+        game_state.get_win(),
+        game_state.get_pints()
+    )
 
 
 def return_play_and_win_count(game_state: Game):
     win_lose_count = GetGameHistory(Query())
-    results = win_lose_count.return_play_count_and_win_count(game_state.get_player_id())
+    results = win_lose_count.return_play_count_and_win_count(
+        game_state.get_player_id())
     play_count = results[0][1]
     win_count = results[0][0]
-    results_list = [win_count, play_count]
-    return results_list
+    return win_count, play_count

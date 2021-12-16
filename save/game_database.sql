@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS player_info;
 
 CREATE TABLE player (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    full_name VARCHAR(55) NOT NULL,
+    full_name VARCHAR(55) NOT NULL
 ) ENGINE InnoDB;
 
 DROP TABLE IF EXISTS game;

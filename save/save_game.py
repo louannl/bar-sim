@@ -11,7 +11,7 @@ class CreateGame:
 
         query_string = '''
         INSERT INTO game (player_id, player_character, won, pint_count, game_date)
-        VALUES (%s, %s, %s, %s)
+        VALUES (%s, %s, %s, %s, %s)
         '''
         send_game_connection = self.query.db_connect(
             query_string, [player_id, character, won, pint_count, game_date])
