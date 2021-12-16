@@ -56,7 +56,7 @@ def narration(self):
     time.sleep(6)
 
 
-def round3_strength_and_outcome(self)
+def round3_strength_and_outcome(self):
     if self.main_char_win_strength:
         print(
             f"You look around and are relieved to see {superhero.name} out cold on the floor. You drag your worthy foe to a nearby stool and prop him up in it. His head will hurt when he wakes up.")
@@ -70,4 +70,5 @@ def round3_strength_and_outcome(self)
 def activate_rounds_get_outcome(self):
     round1_speed()
     round2_intelligence()
+    narration()
     round3_strength_and_outcome()
