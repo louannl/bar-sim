@@ -7,7 +7,6 @@
             <a href="#about-the-project">About The Project</a>
             <ul>
                 <li><a href="#aims-and-objectives">Aims and Objectives</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
             </ul>
         </li>
         <li>
@@ -21,12 +20,10 @@
             <a href="#usage">Usage</a>
             <ul>
                 <li><a href="#how-to-use">How To Use</a></li>
+                <li><a href="#rules-and-that">Rules And That</a></li>
             </ul>
         </li>
-        <li><a href="#specification-and-design">Specification and Design</a></li>
-        <li><a href="#implementation-and-execution">Implementation and Execution</a></li>
         <li><a href="#testing-and-evaluation">Testing and Evaluation</a></li>
-        <li><a href="#conclusion">conclusion</a></li>
     </ol>
 </details>
 
@@ -36,49 +33,45 @@
 ## Aims and Objectives
 Really fun game
 
-## Roadmap
-(Coming soon):
-- This
-- That
-
 <!-- GETTING STARTED -->
 # Getting started
 
 ## Prerequisites
 To run this program locally you need to have the following installed/setup:
-- Python3 (version??)
-- Terminal???
+- Python v3.9 or above
+- API key for superheroAPI
+- A mySQL Database 
+- A really swanky looking terminal to increase the viewing experience
 
 ## Installation
-1. Clone the repo
-2. Install requirements.txt
+1. Clone the repo.
+2. Setup a mySQL database, the information to create the DB is in an sql file under the 'save' directory.
+3. Install dependencies by using requirements.txt, this can be done using the following command:
 
-*If using a virtual environment set it up first, then install the requirements.txt
+*If using a virtual environment set it up first, then install the requirements.txt.
 
-*Note: this command may differ per operating system:
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
-3. Copy .env.example and rename it to .env and fill in the missing information 
+3. Copy the .env.example file and rename it to .env within the same directory.
+4. Fill in the .env information with your own API keys and db details.
 
-????
 <!-- USAGE -->
 # Background
 ## How to use
-How to run it, rules etc.???
+To run the game, run the following command from the root directory:
 
-<!-- SPECIFICATIONS AND DESIGN -->
-# Specification and Design
+```
+python -m main
+```
 
-<!-- IMPLEMENTATION AND EXECUTION -->
-# Implementation and Execution
+## Rules and that
+:'(
 
-<!-- TESTING AND EVALUATION -->
-# Testing and Evaluation
+<!-- TESTING -->
+# Testing
 To run testing, run the following command in the root:
 
 - testing strategy
 - functional and user testing
 - system limitations
-<!-- CONCLUSION -->
-# Conclusion
