@@ -5,7 +5,7 @@ from game_engine.game import Game
 
 #not really sure how to access the details from the Game class (which takes in character function)
 #The below worked when I instantiated the basic way (superhero= etc)
-def fight_club(superhero, main_character):
+def fight_club(superhero: Character, main_character: Character) -> bool:
     main_char_win_speed = superhero.speed < main_character.speed
     main_char_win_strength = superhero.strength < main_character.strength
     main_char_win_intelligence = superhero.intelligence > main_character.intelligence
