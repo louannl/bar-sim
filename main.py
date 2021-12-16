@@ -27,5 +27,6 @@ while scenario != 'end_scene':
 
 save_game(game_state)
 wins, plays = return_play_and_win_count(game_state)
-print(f'You have players {plays} amount of times, and won {wins} time/s')
+print(
+    f'You have played {plays} time{"s" if plays > 1 else ""}, and won {wins} time{"s" if wins > 1 else ""}')
 play_beer()
