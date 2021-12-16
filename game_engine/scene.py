@@ -1,7 +1,8 @@
 from game_engine.game import Game
+from utils.dice_decider import DiceDecider
 
 
-class Scene():
+class Scene:
     def __init__(self, scene: dict) -> None:
         self.intro = scene['intro']
         self.options = scene['options']
@@ -32,7 +33,10 @@ def get_choice(scene: Scene) -> int:
     return int(input('Pick: '))
 
 
-def scene_generator(scene: Scene, game_state) -> str:
+def scene_generator(scene: Scene, game_state: Game) -> str:
+    if game_state.pints <= 0:
+        return too_sober()
+
     scene_options = scene.return_options()
     print(scene.render_intro(game_state))
 
@@ -42,4 +46,34 @@ def scene_generator(scene: Scene, game_state) -> str:
 
     users_choice = get_choice(scene)
     print(scene.render_result(users_choice))
-    return scene.options[str(users_choice)]['nextScene']
+
+    next_scene = scene.options[str(users_choice)]['nextScene']
+
+    if next_scene == 'dice':
+        return dice_scene()
+
+    if next_scene == 'goHome':
+        game_state.update_pints(-3)
+
+    if next_scene == 'win':
+        game_state.victory()
+
+    return next_scene
+
+
+def dice_scene() -> str:
+    print('You chuck the dice high, it falls...')
+    dice_decider = DiceDecider()
+    roll_amount = dice_decider.dice_roll()
+    print(f'You rolled a {roll_amount}')
+    if roll_amount > 3:
+        print('Success!')
+        return 'win'
+    print('oh no... how unlucky...')
+    return 'lose'
+
+
+def too_sober() -> str:
+    print('You failed to get enough pints and became too *sober*\nYou are now Tee-Total...')
+    print('THE END')
+    return 'end_scene'

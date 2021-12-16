@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 import requests
+import random
 
 load_dotenv()
 
@@ -14,6 +15,11 @@ def random_insult():
     # added exception so it's not a bare except clause
     except Exception:
         raise ConnectionError(f"Unable to connect to api {url}.")
+
+
+def get_random_beer():
+    beers = ['Stella Artois', 'Peroni', 'Heineken', 'Magners']
+    return random.choice(beers)
 
 
 def get_character(num):
@@ -65,5 +71,3 @@ def set_user_character():
         set_user_character()
     else:
         print("Thank you for playing Get Served.")
-        # I've made it an exit command as SystemExit came up with a warning that the statement did nothing
-        exit()

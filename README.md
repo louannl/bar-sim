@@ -16,10 +16,18 @@
 
 *Note: this command may differ per operating system:
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 3. Copy .env.example and rename it to .env and fill in the missing information 
 
 # Usage
+
+## Testing
+To run all unit tests, the tests directory needs to have an empty `__init__.py` file.
+
+You run the following command: 
+```
+python -m unittest
+```
 
 # Roadmap
