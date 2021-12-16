@@ -2,7 +2,7 @@ import unittest
 import beer_prize_animation
 from beer_prize_animation import BeerPourSprite
 
-path: str = r"\bar-sim-main\tests\tests_beer_prize\test_beer_prize_images"
+path: str = r"\test_beer_prize_images"
 
 
 class TestImageLoading(unittest.TestCase):
