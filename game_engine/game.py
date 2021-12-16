@@ -1,3 +1,6 @@
+from utils.utils import get_random_beer, random_insult
+
+
 class Game:
     def __init__(self) -> None:
         """
@@ -7,8 +10,19 @@ class Game:
         """
         self.main_character = 'Thomas The Tank Engine'
         self.superhero = 'Deadpool'
-        self.prize = 'Stella Artois'
-        self.pints = 0
+        self.prize = get_random_beer()
+        self.pints = 9
+        self.insult = random_insult()
 
     def update_main_character(self, character: str) -> None:
         self.main_character = character
+
+    def update_pints(self, amount):
+        new_pints = self.pints + amount
+        if new_pints <= 0:
+            print('Oh no! No more pints are in your system!')
+            self.pints = 0
+            return 0
+        self.pints = new_pints
+        print('Current pints: ', self.pints)
+        return self.pints
