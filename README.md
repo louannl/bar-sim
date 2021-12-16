@@ -16,7 +16,7 @@
 
 *Note: this command may differ per operating system:
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 3. Copy .env.example and rename it to .env and fill in the missing information 
 
