@@ -30,7 +30,7 @@
                 },
                 "3": {
                     "choice": "Leave|Go home",
-                    "action": "{{insult}}",
+                    "action": "",
                     "nextScene": "goHome"
                 }
             }
@@ -290,7 +290,7 @@
             }
         },
         "rucksack": {
-            "intro": "You open the rucksack and shade your eyes, as a harsh white light bursts forth and blinds Hefty, who stumbles backwards and falls.\nThe glare fades to a glow, at the centre of which stands a [superhero] who looks straight at you.\n'Need a hand?'",
+            "intro": "You open the rucksack and shade your eyes, as a harsh white light bursts forth and blinds Hefty, who stumbles backwards and falls.\nThe glare fades to a glow, at the centre of which stands [superhero], who looks straight at you.\n'Need a hand?'",
             "options": {
                 "1": {
                     "choice": "Say yes!",
@@ -310,7 +310,7 @@
             }
         },
         "sayYes": {
-            "intro": "The [superhero] is delighted.\n'Then I shall be your champion!  I will combat on your behalf!'\nYou envisage Hefty being levelled and serving you a succession of free pints with gratitude, after you intercede on his behalf.\n'We shall do battle - with words!'\nHefty is as confused as you are.\n'I shall best you with insults, opponent, then you will do as my friend here bids and with good grace while you're at it!'\nAfter this, [superhero] turns to you, 'Do you agree, friend?'",
+            "intro": "[superhero] is delighted.\n'Then I shall be your champion!  I will combat on your behalf!'\nYou envisage Hefty being levelled and serving you a succession of free pints with gratitude, after you intercede on his behalf.\n'We shall do battle - with words!'\nHefty is as confused as you are.\n'I shall best you with insults, opponent, then you will do as my friend here bids and with good grace while you're at it!'\nAfter this, [superhero] turns to you, 'Do you agree, friend?'",
             "options": {
                 "1": {
                     "choice": "You agree",
@@ -340,11 +340,11 @@
             }
         },
         "agree": {
-            "intro": "The [superhero] throws [insults] at Hefty, who's confused at first, but as the insults continue, becomes increasingly incensed.  He tries to lunge, but is stopped by the [superhero], who keeps him at bay with powers.\nHefty understands that only insults will do and tries to rise to the challenge, but fails miserably - [superhero] wins it for you with an insult that reduces Hefty to tears, as onlookers laugh.\nThe [superhero] pours you a beer.\n It's okay, nothing special.  You're not sure why you were that bothered about getting a drink in the first place now.  But you drink gladly, people seem to be in a better mood with the [superhero] in the room.  It's feels like a good ending.",
+            "intro": "[superhero] throws [insults] at Hefty, who's confused at first, but as the insults continue, becomes increasingly incensed.  He tries to lunge, but is stopped by [superhero], who keeps him at bay with powers.\nHefty understands that only insults will do and tries to rise to the challenge, but fails miserably - [superhero] wins it for you with an insult that reduces Hefty to tears, as onlookers laugh.\n[superhero] pours you a beer.\n It's okay, nothing special.  You're not sure why you were that bothered about getting a drink in the first place now.  But you drink gladly, people seem to be in a better mood with [superhero] in the room.  It's feels like a good ending.",
             "options": {}
         },
         "wishGranted": {
-            "intro": "The [superhero] 'persuades' Hefty to desist.\nYou make your way to the counter, unimpeded - people let you through.\nThe other barkeep pours you a beer.  Finally.\nYou lift the glass - but the liquid is vibrating.  You're vibrating.",
+            "intro": "[superhero] 'persuades' Hefty to desist.\nYou make your way to the counter, unimpeded - people let you through.\nThe other barkeep pours you a beer.  Finally.\nYou lift the glass - but the liquid is vibrating.  You're vibrating.",
             "options": {
                 "1": {
                     "choice": "The ground's shaking|The ground shakes beneath your feet.",
@@ -354,7 +354,7 @@
             }
         },
         "powersDenied": {
-            "intro": "The [superhero] blazes into light and fades out of view - the rucksack rezips.  The wild-eyed guy shakes his head in disgust, while retrieving it.\nAs he walks away, you see that Hefty is approaching you smiling.",
+            "intro": "[superhero] blazes into light and fades out of view - the rucksack rezips.  The wild-eyed guy shakes his head in disgust, while retrieving it.\nAs he walks away, you see that Hefty is approaching you smiling.",
             "options": {
                 "1": {
                     "choice": "Time to face the music|You brace yourself - fight time!",
@@ -364,17 +364,37 @@
             }
         },
         "eatTheHumBug": {
-            "intro": "A blaze of light fills the snug and it fades to a glow, halo-ing a [superhero], who greets you and poses a [quiz / riddle].\n'Do you accept the challenge?'\nRendlesham notices you're at loss.\n'Say yes - if you wanna chance to win the [Secret Tab]!'\nYou accept and the [superhero] starts the [countdown].",
+            "intro": "A blaze of light fills the snug and it fades to a glow, halo-ing a [superhero], who greets you and poses a [quiz / riddle].\n'Do you accept the challenge?'\nRendlesham notices you're at loss.\n'Say yes - if you wanna chance to win the [Secret Tab]!'\nYou accept and [superhero] starts the [countdown].",
             "options": {
                 "1": {
-                    "choice": "You don't solve it or run out of time",
+                    "choice": "Let the dice decide your fate.",
                     "action": "",
-                    "nextScene": "loseRiddle"
+                    "nextScene": "dice"
                 },
                 "2": {
-                    "choice": "You win",
+                    "choice": "Solve the Riddle",
                     "action": "",
-                    "nextScene": "youWin"
+                    "nextScene": "riddle"
+                }
+            }
+        },
+        "riddle": {
+            "intro": "[insult]\nNot sure why you think you're so smart. But here's the riddle (or is it?)...\nWhat is the definition of an Algorithm?",
+            "options": {
+                "1": {
+                    "choice": "A process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer.",
+                    "action": "",
+                    "nextScene": "lose"
+                },
+                "2": {
+                    "choice": "A word used by a programmer when they don't want to explain what they did.",
+                    "action": "",
+                    "nextScene": "win"
+                },
+                "3": {
+                    "choice": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                    "action": "",
+                    "nextScene": "lose"
                 }
             }
         },
@@ -388,7 +408,7 @@
                 }
             }
         },
-        "loseRiddle": {
+        "lose": {
             "intro": "There's a flash of light and when your eyes adjust, you see it's just you and Rendlesham back in the snug.\n'Here, you haven't got the [Secret Tab], but you deserve something for being a good sport.'\nHe slides over a fresh, new pint and you have it while he tells you [superhero] stories.\nWhen kicking-out time comes, you're still thirsty, but you say your goodbyes and",
             "options": {
                 "1": {
@@ -398,8 +418,8 @@
                 }
             }
         },
-        "youWin": {
-            "intro": "You win the [Secret Tab]!  For life!\nYou watch your [prize], as the [superhero] pours it out for you.\nThis is it, this is what you wanted when you left home, you wanted to get served!",
+        "win": {
+            "intro": "You win the [Secret Tab]!  For life!\nYou watch your [prize], as [superhero] pours it out for you.\nThis is it, this is what you wanted when you left home, you wanted to get served!",
             "options": {}
         },
         "template": {
