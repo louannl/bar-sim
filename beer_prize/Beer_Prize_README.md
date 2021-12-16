@@ -1,4 +1,3 @@
-
 Beer Prize Clip
 
 Animated clip produced using PyGanim module of the PyGame module set.
