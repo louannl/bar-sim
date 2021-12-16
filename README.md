@@ -40,7 +40,7 @@ Really fun game
 To run this program locally you need to have the following installed/setup:
 - Python v3.9 or above
 - API key for superheroAPI
-- A mySQL Database 
+- mySQL Database 
 - A really swanky looking terminal to increase the viewing experience
 
 ## Installation
@@ -48,16 +48,16 @@ To run this program locally you need to have the following installed/setup:
 2. Setup a mySQL database, the information to create the DB is in an sql file under the 'save' directory.
 3. Install dependencies by using requirements.txt, this can be done using the following command:
 
-*If using a virtual environment set it up first, then install the requirements.txt.
+    *If using a virtual environment set it up first, then install the requirements.txt.
 
-```
-pip install -r requirements.txt
-```
-3. Copy the .env.example file and rename it to .env within the same directory.
-4. Fill in the .env information with your own API keys and db details.
+    ```
+    pip install -r requirements.txt
+    ```
+4. Copy the .env.example file and rename it to .env within the same directory.
+5. Fill in the .env information with your own API keys and db details.
 
 <!-- USAGE -->
-# Background
+# Usage
 ## How to use
 To run the game, run the following command from the root directory:
 
@@ -66,12 +66,17 @@ python -m main
 ```
 
 ## Rules and that
-:'(
+:)
 
 <!-- TESTING -->
 # Testing
-To run testing, run the following command in the root:
+To run automated unit tests, run the following command in the root directory:
+```
+python -m unittest
+```
 
-- testing strategy
-- functional and user testing
-- system limitations
+Specific modules can be specified by appending the file path of the test. See unittest documentation for more information e.g.
+
+```
+python -m unittest tests/unit/utils/test_dice_decider.py
+```
