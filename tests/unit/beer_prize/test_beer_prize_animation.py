@@ -1,7 +1,6 @@
 import os
 import unittest
-import beer_prize_animation
-from beer_prize_animation import BeerPourSprite
+from beer_prize.beer_prize_animation import BeerPourSprite, load_images
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 bitmap_path = current_dir + os.sep + 'test_images'
@@ -9,7 +8,7 @@ bitmap_path = current_dir + os.sep + 'test_images'
 
 class TestImageLoading(unittest.TestCase):
     def test_images_load(self):
-        result = beer_prize_animation.load_images()
+        result = load_images()
         self.assertTrue(result)
 
 
