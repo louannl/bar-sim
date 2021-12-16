@@ -3,12 +3,10 @@ import time
 from game_engine.character import Character
 
 
-class FightClub(superhero: Character, main_character: Character
-
-) -> bool:
+class FightClub():
 
 
-def __init__(self, request) -> None:
+def __init__(self, superhero: Character, main_character: Character) -> None:
     self.main_char_win_speed = superhero.speed < main_character.speed
     self.main_char_win_strength = superhero.strength < main_character.strength
     self.main_char_win_intelligence = superhero.intelligence > main_character.intelligence
@@ -56,7 +54,7 @@ def narration(self):
     time.sleep(6)
 
 
-def round3_strength_and_outcome(self):
+def round3_strength_and_outcome(self) -> bool:
     if self.main_char_win_strength:
         print(
             f"You look around and are relieved to see {superhero.name} out cold on the floor. You drag your worthy foe to a nearby stool and prop him up in it. His head will hurt when he wakes up.")
