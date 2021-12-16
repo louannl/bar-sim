@@ -70,6 +70,8 @@ python -m main
 
 <!-- TESTING -->
 # Testing
+*To run all unit tests, the tests directory needs to have an empty `__init__.py` file.*
+
 To run automated unit tests, run the following command in the root directory:
 ```
 python -m unittest
