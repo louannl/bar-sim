@@ -1,6 +1,6 @@
 import json
 from os import error
-# from beer_prize.beer_prize_animation import play_beer
+from beer_prize.beer_prize_animation import play_beer
 from game_engine.character import Character
 
 from game_engine.game import Game
@@ -36,4 +36,4 @@ save_game(game_state)
 wins, plays = return_play_and_win_count(game_state)
 print(
     f'You have played {plays} time{"s" if plays > 1 else ""}, and won {wins} time{"s" if wins > 1 else ""}')
-# play_beer()
+play_beer()
