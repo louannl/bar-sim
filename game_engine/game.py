@@ -1,4 +1,4 @@
-from utils.utils import random_insult
+from utils.utils import get_random_beer, random_insult
 
 
 class Game:
@@ -10,7 +10,7 @@ class Game:
         '''
         self.main_character = 'Thomas The Tank Engine'
         self.superhero = 'Deadpool'
-        self.prize = 'Stella Artois'
+        self.prize = get_random_beer()
         self.pints = 9
         self.insult = random_insult()
 
