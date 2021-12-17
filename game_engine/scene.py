@@ -1,3 +1,4 @@
+from random import randint
 from game_engine.character import Character
 from game_engine.game import Game
 from utils.dice_decider import DiceDecider
@@ -49,14 +50,16 @@ def scene_generator(scene: Scene, game_state: Game) -> str:
         return 'end_scene'
 
     user_choice = get_choice(scene)
+
     if user_choice == 0:
         exit()
+
     print(scene.render_result(user_choice))
 
     next_scene = scene.options[str(user_choice)]['nextScene']
 
     if next_scene == 'dice':
-        return dice_scene()
+        return dice_scene(game_state)
 
     if next_scene == 'goHome':
         game_state.update_pints(-3)
@@ -64,18 +67,39 @@ def scene_generator(scene: Scene, game_state: Game) -> str:
     if next_scene == 'win':
         game_state.victory()
 
+    if next_scene == 'earthquake':
+        select = randint(1, 2)
+        if select == 1:
+            return strength_scene_test(game_state)
+        return dice_scene(game_state)
+
     return next_scene
 
 
-def dice_scene() -> str:
+def dice_scene(game_state: Game) -> str:
     print('You chuck the dice high, it falls...')
     dice_decider = DiceDecider()
     roll_amount = dice_decider.dice_roll()
     print(f'You rolled a {roll_amount}')
     if roll_amount > 3:
         print('Success!')
+        game_state.update_pints(2)
         return 'win'
     print('oh no... how unlucky...')
+    game_state.update_pints(-2)
+    return 'lose'
+
+
+def strength_scene_test(game_state: Game) -> str:
+    print('You push with all your might!')
+    char_str = game_state.main_character.strength
+    print(f'Your chosen character\'s strength is: {char_str}')
+    if int(char_str) > 30:
+        print('You push it way, and save yourself and the barman! \nAs you struggle for the door, the barman grabs a pint for you...')
+        game_state.update_pints(2)
+        return 'win'
+    print('You\'re not strong enough, you\'re pushed back by the force...Oh no...')
+    game_state.update_pints(-2)
     return 'lose'
 
 
