@@ -3,19 +3,25 @@ from os import error
 from beer_prize.beer_prize_animation import play_beer
 from game_engine.game import Game
 from game_engine.scene import Scene, scene_generator
-from utils.save_helpers import create_or_return_player_id, return_play_and_win_count, save_game
+from game_engine.character import Character
 from save.save_game import GetGameHistory
 from save.query import Query
-
+from utils.save_helpers import create_or_return_player_id, return_play_and_win_count, save_game
+from utils.utils import get_character, get_random_superhero, set_user_character
 
 with open("story/scenes.json") as jsonScenesFile:
     game_file = json.load(jsonScenesFile)
     game_scenes = game_file['scenes']
     jsonScenesFile.close()
 
-game_state = Game()
-
 player_name = input("Please enter your name: ")
+player_character_id = set_user_character()
+
+game_state = Game(
+    Character(get_character(player_character_id)),
+    Character(get_character(get_random_superhero()))
+)
+
 create_or_return_player_id(player_name, game_state)
 
 scenario = 'introScene'

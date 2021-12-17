@@ -354,7 +354,7 @@
             }
         },
         "powersDenied": {
-            "intro": "[superhero] blazes into light and fades out of view - the rucksack rezips.  The wild-eyed guy shakes his head in disgust, while retrieving it.\nAs he walks away, you see that Hefty is approaching you smiling.",
+            "intro": "[superhero] blazes into light and fades out of view - the rucksack re-zips.  The wild-eyed guy shakes his head in disgust, while retrieving it.\nAs he walks away, you see that Hefty is approaching you smiling.",
             "options": {
                 "1": {
                     "choice": "Time to face the music|You brace yourself - fight time!",

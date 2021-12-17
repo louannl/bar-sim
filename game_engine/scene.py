@@ -1,3 +1,4 @@
+from game_engine.character import Character
 from game_engine.game import Game
 from utils.dice_decider import DiceDecider
 
@@ -14,6 +15,8 @@ class Scene:
         game_state_variables = vars(game_state).items()
         transformed_intro = self.intro
         for key, value in game_state_variables:
+            if isinstance(value, Character):
+                value = value.getName()
             transformed_intro = transformed_intro.replace(
                 f'[{key}]', str(value))
         return transformed_intro
@@ -22,6 +25,7 @@ class Scene:
         rendered_options = ''
         for option in self.options:
             rendered_options += f'{option}. {self.options[option]["choice"]}\n'
+        rendered_options += '0. Quit Game\n'
         return rendered_options
 
     def render_result(self, choice: int) -> str:
@@ -44,10 +48,12 @@ def scene_generator(scene: Scene, game_state: Game) -> str:
         print('THE END')
         return 'end_scene'
 
-    users_choice = get_choice(scene)
-    print(scene.render_result(users_choice))
+    user_choice = get_choice(scene)
+    if user_choice == 0:
+        exit()
+    print(scene.render_result(user_choice))
 
-    next_scene = scene.options[str(users_choice)]['nextScene']
+    next_scene = scene.options[str(user_choice)]['nextScene']
 
     if next_scene == 'dice':
         return dice_scene()
