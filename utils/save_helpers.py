@@ -13,14 +13,13 @@ def create_or_return_player_id(player_name: str, game_state: Game) -> None:
         player_exists = player.check_player(player_name)
 
     game_state.update_player_id(player_exists[0][0])
-    print(game_state.get_player_id())
 
 
 def save_game(game_state: Game) -> None:
     game = CreateGame(Query())
     game.create_game_save(
         game_state.get_player_id(),
-        game_state.get_character(),
+        game_state.get_character_name(),
         game_state.get_win(),
         game_state.get_pints()
     )

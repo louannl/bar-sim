@@ -30,3 +30,13 @@ class GetGameHistory:
         WHERE player_id = %s'''
         win_and_play_count = self.query.db_connect(query_string, [(player_id)])
         return win_and_play_count
+
+    def display_leaderboard(self):
+        query_string = '''SELECT p.full_name AS player, sum(pint_count) AS pint_total
+        FROM game AS g
+        JOIN player AS p on p.id = g.player_id 
+        GROUP BY 1
+        ORDER BY 2 desc
+        LIMIT 3;'''
+        leaderboard = self.query.db_connect_to_table(query_string)
+        return leaderboard

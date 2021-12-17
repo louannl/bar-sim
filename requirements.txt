@@ -4,3 +4,4 @@ autopep8==1.6.0
 pygame==2.1.0
 Pyganim==0.9.2
 mysql-connector-python==8.0.27
+prettytable==0.7.2
