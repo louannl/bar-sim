@@ -30,6 +30,6 @@ save_game(game_state)
 wins, plays = return_play_and_win_count(game_state)
 print(
     f'You have played {plays} time{"s" if plays > 1 else ""}, and won {wins} time{"s" if wins > 1 else ""}')
-lb = GetGameHistory(Query())
-print(lb.display_leaderboard())
+leaderboard = GetGameHistory(Query())
+print(leaderboard.display_leaderboard())
 play_beer()
