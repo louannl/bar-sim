@@ -2,6 +2,7 @@ from random import randint
 from game_engine.character import Character
 from game_engine.game import Game
 from utils.dice_decider import DiceDecider
+import webbrowser
 
 
 class Scene:
@@ -56,7 +57,12 @@ def scene_generator(scene: Scene, game_state: Game) -> str:
 
     print(scene.render_result(user_choice))
 
-    next_scene = scene.options[str(user_choice)]['nextScene']
+    scene_choice = scene.options[str(user_choice)]
+    if scene_choice['choice'] == 'Super Duper Powerful Combo Attack':
+        webbrowser.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+        return 'lose'
+
+    next_scene = scene_choice['nextScene']
 
     if next_scene == 'dice':
         return dice_scene(game_state)
