@@ -13,7 +13,6 @@ def create_or_return_player_id(player_name: str, game_state: Game) -> None:
         player_exists = player.check_player(player_name)
 
     game_state.update_player_id(player_exists[0][0])
-    print(game_state.get_player_id())
 
 
 def save_game(game_state: Game) -> None:
