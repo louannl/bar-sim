@@ -62,7 +62,11 @@ To run this program locally you need to have the following installed/setup:
 To run the game, run the following command from the root directory:
 
 ```
+
 python -m main
+=======
+pip install -r requirements.txt
+
 ```
 
 ## Rules and that

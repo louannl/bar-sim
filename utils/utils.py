@@ -71,5 +71,3 @@ def set_user_character():
         set_user_character()
     else:
         print("Thank you for playing Get Served.")
-        # I've made it an exit command as SystemExit came up with a warning that the statement did nothing
-        exit()

@@ -1,6 +1,5 @@
 from game_engine.game import Game
 from utils.dice_decider import DiceDecider
-from utils.utils import random_insult
 
 
 class Scene:
@@ -55,6 +54,9 @@ def scene_generator(scene: Scene, game_state: Game) -> str:
 
     if next_scene == 'goHome':
         game_state.update_pints(-3)
+
+    if next_scene == 'win':
+        game_state.victory()
 
     return next_scene
 
