@@ -236,7 +236,7 @@
             }
         },
         "stayAndListen": {
-            "intro": "He gets out a bundle of printed photos - old school - he doesn't trust smartphones.  You look at them and grunt, gesturing at the right times to keep him happy.  He's harmless enough and you've got time to kill before you try the counter again.\n'I can call on 'em you know?  We're like brothers - blood brothers.  Me and some of them - all in here,' he pats his rucksack 'I've got a special code.'\nYou smile and offer to buy him a drink.\n'Listen.  I don't offer this to everyone, but you're a good sort.  You don't need to stick to the bog standard.  Not when you have access to the [Secret Tab].' \nHe taps the side of his nose, again. He pulls what appears to be a plastic-wrapped, boiled sweet out of his rucksack.",
+            "intro": "He gets out a bundle of printed photos - old school - he doesn't trust smartphones.  You look at them and grunt, gesturing at the right times to keep him happy.  He's harmless enough and you've got time to kill before you try the counter again.\n'I can call on 'em you know?  We're like brothers - blood brothers.  Me and some of them - all in here,' he pats his rucksack 'I've got a special code.'\nYou smile and offer to buy him a drink.\n'Listen.  I don't offer this to everyone, but you're a good sort.  You don't need to stick to the bog standard.  Not someone of your caliber.' \nHe taps the side of his nose, again. He pulls what appears to be a plastic-wrapped, boiled sweet out of his rucksack.",
             "options": {
                 "1": {
                     "choice": "You eat the humbug",
@@ -364,7 +364,7 @@
             }
         },
         "eatTheHumBug": {
-            "intro": "A blaze of light fills the snug and it fades to a glow, halo-ing a [superhero], who greets you and poses a [quiz / riddle].\n'Do you accept the challenge?'\nRendlesham notices you're at loss.\n'Say yes - if you wanna chance to win the [Secret Tab]!'\nYou accept and [superhero] starts the [countdown].",
+            "intro": "A blaze of light fills the snug and it fades to a glow, halo-ing a [superhero], who greets you and poses a [quiz / riddle].\n'Do you accept the challenge?'\nRendlesham notices you're at loss.\n'Say yes - if you wanna chance to win!'\nYou accept and [superhero] starts the [countdown].",
             "options": {
                 "1": {
                     "choice": "Let the dice decide your fate.",
@@ -409,7 +409,7 @@
             }
         },
         "lose": {
-            "intro": "There's a flash of light and when your eyes adjust, you see it's just you and Rendlesham back in the snug.\n'Here, you haven't got the [Secret Tab], but you deserve something for being a good sport.'\nHe slides over a fresh, new pint and you have it while he tells you [superhero] stories.\nWhen kicking-out time comes, you're still thirsty, but you say your goodbyes and",
+            "intro": "There's a flash of light and when your eyes adjust, you see it's just you and Rendlesham back in the snug.\nHe slides over a fresh, new pint and you have it while he tells you [superhero] stories.\nWhen kicking-out time comes, you're still thirsty, but you say your goodbyes and",
             "options": {
                 "1": {
                     "choice": "go home|Go home",
@@ -419,7 +419,7 @@
             }
         },
         "win": {
-            "intro": "You win the [Secret Tab]!  For life!\nYou watch your [prize], as [superhero] pours it out for you.\nThis is it, this is what you wanted when you left home, you wanted to get served!",
+            "intro": "Congratulations! You smashed it!\nYou watch your [prize], as [superhero] pours it out for you.\nThis is it, this is what you wanted when you left home, you wanted to get served!",
             "options": {}
         },
         "template": {
