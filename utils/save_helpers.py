@@ -20,7 +20,7 @@ def save_game(game_state: Game) -> None:
     game = CreateGame(Query())
     game.create_game_save(
         game_state.get_player_id(),
-        game_state.get_character(),
+        game_state.get_character_name(),
         game_state.get_win(),
         game_state.get_pints()
     )
