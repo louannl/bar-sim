@@ -22,7 +22,7 @@ class Scene:
         rendered_options = ''
         for option in self.options:
             rendered_options += f'{option}. {self.options[option]["choice"]}\n'
-        rendered_options = '0. Quit Game\n'
+        rendered_options += '0. Quit Game\n'
         return rendered_options
 
     def render_result(self, choice: int) -> str:
@@ -30,9 +30,6 @@ class Scene:
 
 
 def get_choice(scene: Scene) -> int:
-    users_choice = get_choice(scene)
-    if users_choice == '0':
-        exit()
     print(scene.render_choices())
     return int(input('Pick: '))
 
@@ -49,6 +46,8 @@ def scene_generator(scene: Scene, game_state: Game) -> str:
         return 'end_scene'
 
     user_choice = get_choice(scene)
+    if user_choice == 0:
+        exit()
     print(scene.render_result(user_choice))
 
     next_scene = scene.options[str(user_choice)]['nextScene']
