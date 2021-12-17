@@ -41,7 +41,7 @@ Really fun game
 To run this program locally you need to have the following installed/setup:
 - Python v3.9 or above
 - API key for superheroAPI - [Click Here For Link](https://superheroapi.com/)
-- mySQL Database [Link to sql query to set up database](..blob/main/save/game_database.sql)
+- mySQL Database [Link to sql query to set up database](blob/main/save/game_database.sql)
 - A really swanky looking terminal to increase the viewing experience
 
 ## Installation
