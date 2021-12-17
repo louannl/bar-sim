@@ -403,7 +403,7 @@
                     "nextScene": "win"
                 },
                 "3": {
-                    "choice": "Super Duper Powerful Combo Attack",
+                    "choice": "Ask Rick",
                     "action": "",
                     "nextScene": "lose"
                 }
