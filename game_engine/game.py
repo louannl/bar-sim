@@ -8,10 +8,9 @@ class Game:
         """
         These variables are used when preparing the scenes, so make sure the
         name of the variable matches the story scenes when necessary i.e.
-        [main_character] [superhero] etc.
+        [prize] [superhero] etc. (exception made for character classes!)
         """
         self.player_id = None
-        # These are defaults
         self.main_character = main_character
         self.superhero = superhero
         self.pints = 9
