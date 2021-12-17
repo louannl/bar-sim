@@ -10,7 +10,9 @@ FPS = 60
 screen = pygame.display.set_mode(SIZE)
 pygame.display.set_caption("This is the beer you're looking for.")
 clock = pygame.time.Clock()
-path = r"C:\Users\User\Downloads\bar-sim-main(2)\bar-sim-main\beer_prize\Bitmaps"
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+bitmap_path = current_dir + os.sep + 'Bitmaps'
 
 
 def load_images():
@@ -21,8 +23,8 @@ def load_images():
     Returns: list of images.
     """
     images = []
-    for file_name in os.listdir(path):
-        image = pygame.image.load(path + os.sep + file_name).convert()
+    for file_name in os.listdir(bitmap_path):
+        image = pygame.image.load(bitmap_path + os.sep + file_name).convert()
         images.append(image)
     return images
 
