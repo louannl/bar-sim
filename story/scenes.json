@@ -267,7 +267,18 @@
         },
         "earthquake": {
             "intro": "The murky flagstones cleave and fracture as you abandon all thoughts of pints or bars and simply play hopscotch at the end of days.\nThe earth itself seems to breaking into a grin, presenting a gaping crevasse that prepares for your descent, but before you slip into it, someone grabs your legs and hauls you back, under a table.\nIt's the other barkeep.  You hope that your deep appreciation can be read from your eyes.\nBefore you can speak, an aftershock thrusts you together, while rubble and debris engulf the table above.  You're sealed in.\n So. This is how it ends.\nYou cling to each other.",
-            "options": {}
+            "options": {
+                "1": {
+                    "choice": "Attempt to use your strength to push the debris to escape?",
+                    "action": "",
+                    "nextScene": "strength"
+                },
+                "2": {
+                    "choice": "Roll some dice, maybe that will help? (ツ)_/¯",
+                    "action": "",
+                    "nextScene": "dice"
+                }
+            }
         },
         "waitForRendlesham": {
             "intro": "Much to your gratitude, he places the pints down with care.\n'Right here we go.'\nHe pulls out more books and papers from the rucksack beside him.\nYou lift the glass up, zoning out as he points to indeterminate shapes on blurry photos.\nThe beer's rank - bottom of the barrel dregs.\nYou point to the loo, making your excuses, as you get up.",
@@ -392,7 +403,7 @@
                     "nextScene": "win"
                 },
                 "3": {
-                    "choice": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                    "choice": "Ask Rick",
                     "action": "",
                     "nextScene": "lose"
                 }
