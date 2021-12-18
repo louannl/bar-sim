@@ -1,6 +1,7 @@
 from random import randint
 from game_engine.character import Character
 from game_engine.game import Game
+from utils.decorators import retry_input
 from utils.dice_decider import DiceDecider
 import webbrowser
 import time
@@ -40,6 +41,7 @@ def get_choice(scene: Scene) -> int:
     return int(input('Pick: '))
 
 
+@retry_input
 def scene_generator(scene: Scene, game_state: Game) -> str:
     if game_state.pints <= 0:
         return too_sober()
