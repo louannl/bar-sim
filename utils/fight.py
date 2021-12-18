@@ -8,9 +8,9 @@ class FightClub:
     def __init__(self, superhero: Character, main_character: Character) -> None:
         self.superhero = superhero
         self.main_character = main_character
-        self.main_char_win_speed = superhero.speed < main_character.speed
-        self.main_char_win_strength = superhero.strength < main_character.strength
-        self.main_char_win_intelligence = superhero.intelligence > main_character.intelligence
+        self.main_char_win_speed = superhero.speed <= main_character.speed
+        self.main_char_win_strength = superhero.strength <= main_character.strength
+        self.main_char_win_intelligence = superhero.intelligence <= main_character.intelligence
         self.char_wins = 0
 
     def round1_speed(self):
