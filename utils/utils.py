@@ -1,7 +1,5 @@
 import os
-
 from dotenv import load_dotenv
-
 import requests
 import random
 
@@ -23,9 +21,9 @@ def get_random_beer():
 
 
 def get_character(num):
+    access_token = os.getenv('SUPERHERO_API_KEY')
+    url = f"https://superheroapi.com/api/{access_token}/{num}"
     try:
-        access_token = os.getenv('SUPERHERO_API_KEY')
-        url = f"https://superheroapi.com/api/{access_token}/{num}"
         return requests.get(url).json()
     except requests.exceptions.ConnectionError:
         print(f"Unable to connect to api {url}.")
@@ -62,17 +60,29 @@ def set_user_character():
     for player_no, player_info in player_options.items():
         player_select = input(
             f"Player {player_no}: {player_info['name']}?\nEnter 'y' to select or 'n' to keep browsing: ")
+        invalid_input = True
+
+        while invalid_input:
+            if player_select == "y" or player_select == "n":
+                invalid_input = False
+            else:
+                print("I'm sorry that is not a recognised option. To select a player, you need to please enter 'y', to "
+                      "keep browsing enter 'n'. \nLet's try again.")
+                player_select = input(
+                    f"Player {player_no}: {player_info['name']}?\nEnter 'y' to select or 'n' to keep browsing: ")
+
         if player_select == "y":
             return player_info["id"]
-        if player_select == "n":
+        elif player_select == "n":
             pass
         else:
-            print("I'm sorry that is not a recognised option. To select a player, you need to please enter 'y', to keep browsing enter 'n'. \nLet's try again.")
-            set_user_character()
+            print("I'm sorry that is not a recognised option. To select a player, you need to please enter 'y', to keep"
+                  " browsing enter 'n'. \nLet's try again.")
+
     browse_again = input(
-        "You have browsed through all of our available player options. \nDo you want to try again? Enter 'y' to browse again or any key to exit the game: ")
+        "You have browsed through all of our available player options. \nDo you want to try again? Enter 'y' to "
+        "browse again or any key to exit the game: ")
     if browse_again == "y":
-        print("Which player would you like to select: ")
         set_user_character()
     else:
         print("Thank you for playing Get Served.")
