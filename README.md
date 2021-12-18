@@ -1,27 +1,34 @@
-![TeamGetServedLogo.png](../../../_resources/TeamGetServedLogo.png)
+![TeamGetServedLogo.png](readme_images/TeamGetServedLogo.png)
 
 # Get Served
 
-<details><summary>Click to Expand</summary>
-
-## Table of Contents
-
-1.  About The Project
-    
-    - Aims and Objectives
-2.  Getting Started
-    
-    - Prerequisites
-    - Installation
-3.  Usage
-    
-    - How To Use
-    - Rules And That
-4.  Testing and Evaluation
-    
-
-</details>
-
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+    <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+    <ol>
+        <li>
+            <a href="#about-the-project">About The Project</a>
+            <ul>
+                <li><a href="#aims-and-objectives">Aims and Objectives</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#getting-started">Getting Started</a>
+            <ul>
+                <li><a href="#prerequisites">Prerequisites</a></li>
+                <li><a href="#installation">Installation</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#usage">Usage</a>
+            <ul>
+                <li><a href="#how-to-use">How To Use</a></li>
+                <li><a href="#rules-and-that">Rules And That</a></li>
+                <li><a href="#known-issues">Known issues/bugs</a></li>
+            </ul>
+        </li>
+        <li><a href="#testing-and-evaluation">Testing and Evaluation</a></li>
+    </ol>
 ## Documentation
 
 [Documentation](https://linktodocumentation) \- Dummy link at the mo
@@ -101,7 +108,7 @@ Mechanics:
 
 ## Demo
 
-![Bar-Sim-Demo.gif](../../../_resources/Bar-Sim-Demo.gif)
+![Bar-Sim-Demo.gif](readme_images/Bar-Sim-Demo.gif)
 
 (keep file in repo rather than external hosting to make life easier)
 
