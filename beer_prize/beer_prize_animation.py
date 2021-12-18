@@ -19,6 +19,7 @@ def load_images():
     compatibility with Macs, Windows and Linux can deal successfully with relative path).
     Returns: list of images.
     """
+    pygame.display.set_mode(SIZE)
     images = []
     for file_name in os.listdir(bitmap_path):
         image = pygame.image.load(bitmap_path + os.sep + file_name).convert()
