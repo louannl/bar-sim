@@ -2,15 +2,12 @@ import sys
 import os
 import pygame
 
-# Initialising and setup
+# Initialising, pygame window size and clock setup
 pygame.init()
 SIZE = WIDTH, HEIGHT = 427, 240
-BACKGROUND_COLOR = pygame.Color('black')
-FPS = 60
-screen = pygame.display.set_mode(SIZE)
-pygame.display.set_caption("This is the beer you're looking for.")
 clock = pygame.time.Clock()
 
+# Setting up relative filepath for load_images function
 current_dir = os.path.dirname(os.path.abspath(__file__))
 bitmap_path = current_dir + os.sep + 'Bitmaps'
 
@@ -58,6 +55,7 @@ class BeerPourSprite(pygame.sprite.Sprite):
         Does an update of the sprite image every tenth of a second.
         Parameter: dt - interval between frames.
         """
+        FPS = 60
         frame_int = clock.tick(FPS) / 1000  # Loop interval amount
         self.current_time += frame_int
         if self.current_time >= self.animation_time:
@@ -68,6 +66,9 @@ class BeerPourSprite(pygame.sprite.Sprite):
 
 
 def play_beer():
+    BACKGROUND_COLOR = pygame.Color('black')
+    screen = pygame.display.set_mode(SIZE)
+    pygame.display.set_caption("This is the beer you're looking for.")
     beer_stills = load_images()
     player = BeerPourSprite(position=(0, 0), images=beer_stills)
     all_sprites = pygame.sprite.Group(player)  # Making an expandable sprite group and adding 'player' as one.
