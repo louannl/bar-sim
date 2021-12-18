@@ -5,7 +5,7 @@ import requests
 import random
 
 from requests.exceptions import RequestException
-from tests.unit.util.custom_exceptions import ApiError
+from utils.custom_exceptions import ApiError
 
 from utils.decorators import retry_input
 
