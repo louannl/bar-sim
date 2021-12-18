@@ -30,9 +30,10 @@
         <li><a href="#testing-and-evaluation">Testing and Evaluation</a></li>
     </ol>
 </details>
+
 ## Documentation
 
-[Documentation](https://linktodocumentation) \- Dummy link at the mo
+[Documentation](https://linktodocumentation) - Dummy link at the mo
 
 ## About the project
 
