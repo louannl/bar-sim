@@ -46,14 +46,14 @@ def get_random_superhero():
 
 def set_user_character():
     player_options = {
-        1: {'name': 'Buffy',
-            'id': 140},
+        1: {'name': 'Iron Man',
+            'id': 346},
         2: {'name': 'Deadpool',
             'id': 213},
         3: {'name': 'Mystique',
             'id': 480},
-        4: {'name': 'Rambo',
-            'id': 540}
+        4: {'name': 'Wonder Woman',
+            'id': 720}
     }
 
     print("Which player would you like to select:")
