@@ -16,7 +16,7 @@ class FightClub:
     def round1_speed(self):
         if self.main_char_win_speed:
             print(f"Nice one! Your punch makes contact with a satisfying smack!")
-            char_wins += 1
+            self.char_wins += 1
         else:
             print(f"{superhero.name} dodges it and your fist goes crashing into the wall - ouch!")
         time.sleep(3)
