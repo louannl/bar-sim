@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 import requests
 import random
 
-from requests.exceptions import RequestException
 from utils.custom_exceptions import ApiError
 
 from utils.decorators import retry_input
