@@ -87,6 +87,3 @@ def set_user_character():
     else:
         print("Thank you for playing Get Served.")
         exit()
-
-
-set_user_character()
