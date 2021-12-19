@@ -1,7 +1,7 @@
 {
     "scenes": {
         "introScene": {
-            "intro": "You're thirsty.\nNot just thirsty, you want a real drink, poured by someone else.\nYou're looking in through the grimy windows of a Bar.  It looks busy, but warm.  Do you go in and join the crowd or keep looking for somewhere more quiet?",
+            "intro": "You're thirsty.\nNot just thirsty, you want a real drink, poured by someone else. You're looking in through the grimy windows of a Bar. \nIt looks busy, but warm. Do you go in and join the crowd or keep looking for somewhere more quiet?",
             "options": {
                 "1": {
                     "choice": "Bird in the hand",
@@ -16,7 +16,7 @@
             }
         },
         "birdInTheHand": {
-            "intro": "There's a beery undertone in the air that keeps drawing you further in.\nThe counter crowd is formidable - eight, ten deep?  All giants.\nDo you: ",
+            "intro": "There's a beery undertone in the air that keeps drawing you further in. \nThe counter crowd is formidable - eight, ten deep?\nAll giants.\nDo you: ",
             "options": {
                 "1": {
                     "choice": "Dive in, elbows out",
@@ -36,7 +36,7 @@
             }
         },
         "moveOn": {
-            "intro": "You still need a drink. \nYou check your map - the next bar along is a two mile walk and it's late.  Will you get there in time for last orders?",
+            "intro": "You still need a drink. \nYou check your map - the next bar along is a two mile walk and it's late. \nWill you get there in time for last orders?",
             "options": {
                 "1": {
                     "choice": "Chance it and start walking",
@@ -76,7 +76,7 @@
             }
         },
         "findASeat": {
-            "intro": "You head to the quieter section round the back, away from the noise, but the seats are all still taken, except for...\nThe wide table in the far right corner.  There's one guy there, head in a book.  You take a seat at the opposite end and reach for your phone.\n'The first time they took me, I was 13.  The second time, they took me to Venus to meet my real family.  This... ' \n*he points to the little green people on the book cover and taps the side of his nose*\n 'is what they don't want you to know.'\nHe gestures zipping his lips.\n'Let me tell you all about Rendlesham...'",
+            "intro": "You head to the quieter section round the back, away from the noise, but the seats are all still taken, except for...\nThe wide table in the far right corner. There's one guy there, head in a book. You take a seat at the opposite end and reach for your phone. \n'The first time they took me, I was 13. The second time, they took me to Venus to meet my real family. This... ' \n*he points to the little green people on the book cover and taps the side of his nose* \n'is what they don't want you to know.'\nHe gestures zipping his lips.\n'Let me tell you all about Rendlesham...'",
             "options": {
                 "1": {
                     "choice": "Stay and listen - it'll be a laugh",
@@ -96,7 +96,7 @@
             }
         },
         "startWalking": {
-            "intro": "The wind is fierce.  Your route forces you to face it, head-on.\nIt's quiet, there's no one around, no taxis, no buses, just parked cars.\nYou check the map again - it's still ages to the next place, while the bar you've just left and home are equidistant from where you stand.",
+            "intro": "The wind is fierce. Your route forces you to face it, head-on. \nIt's quiet, there's no one around, no taxis, no buses, just parked cars.\nYou check the map again - it's still ages to the next place, while the bar you've just left and home are equidistant from where you stand.",
             "options": {
                 "1": {
                     "choice": "Return to the bar|Bird in the hand",
@@ -111,7 +111,7 @@
             }
         },
         "stateYourOrder": {
-            "intro": "'A beer.'\nYou point to the pump and wait.\nHe sneers, lifting an empty glass to his mouth and spitting into it.\nA wet rag lands squarely across his face.\n'Pour the bloody beer, like you're paid to, or else!'\nIt's the other barkeep, who keeps a close eye as an unsullied beer is poured into a fresh, clean glass and placed on the counter.  Hefty moves on to the next customer, keen to leave you in the past.\nYou lift the beer to your lips.",
+            "intro": "'A beer.'\nYou point to the pump and wait.\nHe sneers, lifting an empty glass to his mouth and spitting into it.\nA wet rag lands squarely across his face.\n'Pour the bloody beer, like you're paid to, or else!'\nIt's the other barkeep, who keeps a close eye as an unsullied beer is poured into a fresh, clean glass and placed on the counter.  \nHefty moves on to the next customer, keen to leave you in the past.\nYou lift the beer to your lips.",
             "options": {
                 "1": {
                     "choice": "The ground shakes beneath your feet.",
@@ -121,7 +121,7 @@
             }
         },
         "senseTheThreat": {
-            "intro": "You stand behind a column that blocks you from view.  You want to lean against it but something's on the shelf that juts out.\nAn unguarded pint.  Filled to the brim and untouched.\nYou look around.  No one's looking, it's unclaimed.",
+            "intro": "You stand behind a column that blocks you from view. \nYou want to lean against it but something's on the shelf that juts out. \nAn unguarded pint.  Filled to the brim and untouched.\nYou look around. No one's looking, it's unclaimed.",
             "options": {
                 "1": {
                     "choice": "Grab it quick and head to the back",
@@ -136,7 +136,7 @@
             }
         },
         "throwGlass": {
-            "intro": "He catches the glass with preternatural reflexes and in one fell swoop, vaults the counter, no mean feat for a man of his heft.\nAs he reaches for you...",
+            "intro": "He catches the glass with preternatural reflexes and in one fell swoop, vaults the counter, no mean feat for a man of his heft. \nAs he reaches for you...",
             "options": {
                 "1": {
                     "choice": "You brace yourself - fight time!",
@@ -156,7 +156,7 @@
             }
         },
         "bookCab": {
-            "intro": "The next Uber has an ETA of one hour - cabs even longer.\nIt's a busy night apparently, though you wouldn't know it from being around here.  Maybe the fun's being had elsewhere.\nThe question is, where?",
+            "intro": "The next Uber has an ETA of one hour - cabs even longer. \nIt's a busy night apparently, though you wouldn't know it from being around here.  \nMaybe the fun's being had elsewhere. \nThe question is, where?",
             "options": {
                 "1": {
                     "choice": "Keep walking - two miles isn't that long",
@@ -176,17 +176,17 @@
             }
         },
         "goHome": {
-            "intro": "Back home again.  At least, there's water in the taps. You got to bed, you can:",
+            "intro": "Back home again. At least, there's water in the taps. You go to bed, you can:",
             "options": {
                 "1": {
                     "choice": "try again tomorrow|Get Served",
-                    "action": "You wake up and go to the pub.\n Same ****, different day...",
+                    "action": "You wake up and go to the pub. \nSame ****, different day...",
                     "nextScene": "introScene"
                 }
             }
         },
         "keepWalking": {
-            "intro": "You get to the next corner and while you check your route again, the sound of an argument spilling out from a doorway startles you.\nYou look around but can't see where they are.  Raised voices give way to the unmistakeable sound of a scuffle.\nThey're getting closer and if you continue, your paths will cross.",
+            "intro": "You get to the next corner and while you check your route again, the sound of an argument spilling out from a doorway startles you.\nYou look around but can't see where they are.  Raised voices give way to the unmistakable sound of a scuffle.\nThey're getting closer and if you continue, your paths will cross.",
             "options": {
                 "1": {
                     "choice": "Retreat - better the devil you know|Bird in the hand",
@@ -201,7 +201,7 @@
             }
         },
         "grabIt": {
-            "intro": "You make great efforts to avoid the sightline of Rendlesham man and head to the opposite corner, taking care not to spill a precious drop.\nJust as you reach it, someone claps you on the back, propelling the pint from your hand. You stare at the miraculously intact glass and the wasted beer pooled around it.\n'Oh mate, you've got to hold on better than that!  You go and wait in the snug while I get 'em in.  Wait till I show you the pictures - always get evidence, that's what I say.'\nYou don't turn around, but you hear him tapping the side of his nose, again.",
+            "intro": "You make great efforts to avoid being seen and head to the opposite corner, taking care not to spill a precious drop. \nJust as you reach it, someone claps you on the back, propelling the pint from your hand. \nYou stare at the miraculously intact glass and the wasted beer pooled around it.\n'Oh mate, you've got to hold on better than that!'  \n'You go and wait in the snug while I get 'em in.  Wait till I show you the pictures - always get evidence, that's what I say.' \nYou don't turn around, but you hear him tapping the side of his nose.",
             "options": {
                 "1": {
                     "choice": "Insist that you get them in and get him to wait back at the snug|Head back to the counter",
@@ -216,7 +216,7 @@
             }
         },
         "downIt": {
-            "intro": "Finally.  A pint.  By hook or by crook.",
+            "intro": "Finally. A pint. By hook or by crook.",
             "options": {
                 "1": {
                     "choice": "The ground shakes beneath your feet.",
@@ -226,7 +226,7 @@
             }
         },
         "headToTheCounter": {
-            "intro": "Once you're sure he's settled, you grimace a smile at him and head to the counter again.\nThis time you're careful to avoid the first barkeep and see a second, on the opposite side.  You wait your turn, eager to be out of sight, within the crowd.\nWhen you get to the front, you ask for a pint of beer.  In a fit of generosity, you pay for a pint's credit - you rightly figure that Rendlesham's a regular and they know who he is.\nFinally.  A pint.  Your pint, bought and paid for.",
+            "intro": "Once you're sure he's settled, you grimace a smile at him and head to the counter again. \nThis time you're careful to avoid the first barkeep and see a second, on the opposite side.  \nYou wait your turn, eager to be out of sight, within the crowd. When you get to the front, you ask for a pint of beer.  \nIn a fit of generosity, you also pay for a pint's credit - you rightly figure that he's a regular and they know who he is.\nFinally. A pint. Your pint, bought and paid for.",
             "options": {
                 "1": {
                     "choice": "The ground shakes beneath your feet.",
@@ -236,7 +236,7 @@
             }
         },
         "stayAndListen": {
-            "intro": "He gets out a bundle of printed photos - old school - he doesn't trust smartphones.  You look at them and grunt, gesturing at the right times to keep him happy.  He's harmless enough and you've got time to kill before you try the counter again.\n'I can call on 'em you know?  We're like brothers - blood brothers.  Me and some of them - all in here,' he pats his rucksack 'I've got a special code.'\nYou smile and offer to buy him a drink.\n'Listen.  I don't offer this to everyone, but you're a good sort.  You don't need to stick to the bog standard.  Not someone of your caliber.' \nHe taps the side of his nose, again. He pulls what appears to be a plastic-wrapped, boiled sweet out of his rucksack.",
+            "intro": "He gets out a bundle of printed photos - old school - he doesn't trust smartphones. \nYou look at them and grunt, gesturing at the right times to keep him happy.  He's harmless enough and you've got time to kill before you try the counter again. \n'I can call on 'em you know?  We're like brothers - blood brothers.  Me and some of them - all in here,' he pats his rucksack, 'I've got a special code.'\nYou smile and offer to buy him a drink.\n'Listen.  I don't offer this to everyone, but you're a good sort.  You don't need to stick to the bog standard.' \n'Not when you have access to the [Secret Tab].' He taps the side of his nose, again. \nHe pulls what appears to be a plastic-wrapped, boiled sweet out of his rucksack.",
             "options": {
                 "1": {
                     "choice": "You eat the humbug",
@@ -251,7 +251,7 @@
             }
         },
         "feignEmergency": {
-            "intro": "'That's alright, I'll wait - no, I'll get 'em in - you stay here.'  He thumps the space beside him, on the banquette.\nYou realise that you won't be getting to the counter any time soon.",
+            "intro": "'That's alright, I'll wait - no, I'll get 'em in - you stay here.' He thumps the space beside him, on the banquette. \nYou realise that you won't be getting to the counter any time soon.",
             "options": {
                 "1": {
                     "choice": "Wait for Rendlesham to get back with the pints, you can put up with his burbling for your only chance of a pint tonight - free at that",
@@ -266,22 +266,11 @@
             }
         },
         "earthquake": {
-            "intro": "The murky flagstones cleave and fracture as you abandon all thoughts of pints or bars and simply play hopscotch at the end of days.\nThe earth itself seems to breaking into a grin, presenting a gaping crevasse that prepares for your descent, but before you slip into it, someone grabs your legs and hauls you back, under a table.\nIt's the other barkeep.  You hope that your deep appreciation can be read from your eyes.\nBefore you can speak, an aftershock thrusts you together, while rubble and debris engulf the table above.  You're sealed in.\n So. This is how it ends.\nYou cling to each other.",
-            "options": {
-                "1": {
-                    "choice": "Attempt to use your strength to push the debris to escape?",
-                    "action": "",
-                    "nextScene": "strength"
-                },
-                "2": {
-                    "choice": "Roll some dice, maybe that will help? (ツ)_/¯",
-                    "action": "",
-                    "nextScene": "dice"
-                }
-            }
+            "intro": "The murky flagstones cleave and fracture as you abandon all thoughts of pints or bars and simply play hopscotch at the end of days.\nThe earth itself seems to be breaking into a grin, presenting a gaping crevasse that prepares for your descent,\nbut before you slip into it, someone grabs your legs and hauls you back, under a table.\nIt's the other barkeep.  You hope that your deep appreciation can be read from your eyes.\nBefore you can speak, an aftershock thrusts you together, while rubble and debris engulf the table above.  You're sealed in. \nSo. This is how it ends. \nYou cling to each other.",
+            "options": {}
         },
         "waitForRendlesham": {
-            "intro": "Much to your gratitude, he places the pints down with care.\n'Right here we go.'\nHe pulls out more books and papers from the rucksack beside him.\nYou lift the glass up, zoning out as he points to indeterminate shapes on blurry photos.\nThe beer's rank - bottom of the barrel dregs.\nYou point to the loo, making your excuses, as you get up.",
+            "intro": "Much to your gratitude, he places the pints down with care. 'Right here we go.' \nHe pulls out more books and papers from the rucksack beside him. \nYou lift the glass up, zoning out as he points to indeterminate shapes on blurry photos. \nThe beer's rank - bottom of the barrel dregs. \nYou point to the loo, making your excuses, as you get up.",
             "options": {
                 "1": {
                     "choice": "Pack it in|Go home",
@@ -291,7 +280,7 @@
             }
         },
         "fightTime": {
-            "intro": "Although you manage to land one or two, he pummels you - almost to a pulp.  Thankfully for you, he gets bored and throws you to the floor.  You crawl to the side and pass out.\nSomeone shakes you awake, a barkeep, but fortunately for you it's not Hefty.  You're helped up and bundled to the door.",
+            "intro": "Although you manage to land one or two, he pummels you - almost to a pulp.  Thankfully for you, he gets bored and throws you to the floor.  \nYou crawl to the side and pass out.\nSomeone shakes you awake, a barkeep, but fortunately for you it's not Hefty.  \nYou're helped up and bundled to the door.",
             "options": {
                 "1": {
                     "choice": "Stagger home | Go home",
@@ -301,7 +290,7 @@
             }
         },
         "rucksack": {
-            "intro": "You open the rucksack and shade your eyes, as a harsh white light bursts forth and blinds Hefty, who stumbles backwards and falls.\nThe glare fades to a glow, at the centre of which stands [superhero], who looks straight at you.\n'Need a hand?'",
+            "intro": "You open the rucksack and shade your eyes, as a harsh white light bursts forth and blinds Hefty, who stumbles backwards and falls. \nThe glare fades to a glow, at the centre of which stands [superhero], who looks straight at you. \n'Need a hand?'",
             "options": {
                 "1": {
                     "choice": "Say yes!",
@@ -321,7 +310,7 @@
             }
         },
         "sayYes": {
-            "intro": "[superhero] is delighted.\n'Then I shall be your champion!  I will combat on your behalf!'\nYou envisage Hefty being levelled and serving you a succession of free pints with gratitude, after you intercede on his behalf.\n'We shall do battle - with words!'\nHefty is as confused as you are.\n'I shall best you with insults, opponent, then you will do as my friend here bids and with good grace while you're at it!'\nAfter this, [superhero] turns to you, 'Do you agree, friend?'",
+            "intro": "[superhero] is delighted. \n'Then I shall be your champion!  I will combat on your behalf!' \nYou envisage Hefty being levelled and serving you a succession of free pints with gratitude, after you intercede on his behalf. \n'We shall do battle - with words!' \nHefty is as confused as you are. \n'I shall best you with insults, opponent, then you will do as my friend here bids and with good grace while you're at it!' \nAfter this, [superhero] turns to you, 'Do you agree, friend?'",
             "options": {
                 "1": {
                     "choice": "You agree",
@@ -336,7 +325,7 @@
             }
         },
         "askForPowers": {
-            "intro": "'My friend, you disappoint me. Powers are not a frippery, they don't get handed out like party bags!'\nYou impress upon him that you have thought carefully about your request, that it's not a whim.  You don't want to lord it over people.\nYou just want the power to get served a drink when you want one.",
+            "intro": "'My friend, you disappoint me. Powers are not a frippery, they don't get handed out like party bags!' \nYou impress upon him that you have thought carefully about your request, that it's not a whim.  You don't want to lord it over people. \nYou just want the power to get served a drink when you want one.",
             "options": {
                 "1": {
                     "choice": "Your wish is granted",
@@ -351,11 +340,11 @@
             }
         },
         "agree": {
-            "intro": "[superhero] throws [insults] at Hefty, who's confused at first, but as the insults continue, becomes increasingly incensed.  He tries to lunge, but is stopped by [superhero], who keeps him at bay with powers.\nHefty understands that only insults will do and tries to rise to the challenge, but fails miserably - [superhero] wins it for you with an insult that reduces Hefty to tears, as onlookers laugh.\n[superhero] pours you a beer.\n It's okay, nothing special.  You're not sure why you were that bothered about getting a drink in the first place now.  But you drink gladly, people seem to be in a better mood with [superhero] in the room.  It's feels like a good ending.",
+            "intro": "[superhero] throws [insults] at Hefty, who's confused at first, but as the insults continue, becomes increasingly incensed.  \nHe tries to lunge, but is stopped by [superhero], who keeps him at bay with powers. \nHefty understands that only insults will do and tries to rise to the challenge, but fails miserably - \n[superhero] wins it for you with an insult that reduces Hefty to tears, as onlookers laugh. \n[superhero] pours you a beer. It's okay, nothing special.  \nYou're not sure why you were that bothered about getting a drink in the first place now.  \nBut you drink gladly, people seem to be in a better mood with [superhero] in the room.  \nIt's feels like a good ending.",
             "options": {}
         },
         "wishGranted": {
-            "intro": "[superhero] 'persuades' Hefty to desist.\nYou make your way to the counter, unimpeded - people let you through.\nThe other barkeep pours you a beer.  Finally.\nYou lift the glass - but the liquid is vibrating.  You're vibrating.",
+            "intro": "[superhero] 'persuades' Hefty to desist. \nYou make your way to the counter, unimpeded - people let you through. \nThe other barkeep pours you a beer.  Finally. \nYou lift the glass - but the liquid is vibrating.  You're vibrating.",
             "options": {
                 "1": {
                     "choice": "The ground's shaking|The ground shakes beneath your feet.",
@@ -365,7 +354,7 @@
             }
         },
         "powersDenied": {
-            "intro": "[superhero] blazes into light and fades out of view - the rucksack re-zips.  The wild-eyed guy shakes his head in disgust, while retrieving it.\nAs he walks away, you see that Hefty is approaching you smiling.",
+            "intro": "[superhero] blazes into light and fades out of view - the rucksack re-zips.  \nThe wild-eyed guy shakes his head in disgust, while retrieving it. \nAs he walks away, you see that Hefty is approaching you smiling.",
             "options": {
                 "1": {
                     "choice": "Time to face the music|You brace yourself - fight time!",
@@ -375,7 +364,7 @@
             }
         },
         "eatTheHumBug": {
-            "intro": "A blaze of light fills the snug and it fades to a glow, halo-ing a [superhero], who greets you and poses a [quiz / riddle].\n'Do you accept the challenge?'\nRendlesham notices you're at loss.\n'Say yes - if you wanna chance to win!'\nYou accept and [superhero] starts the [countdown].",
+            "intro": "A blaze of light fills the snug and it fades to a glow, halo-ing a [superhero], who greets you and poses a [quiz / riddle]. \n'Do you accept the challenge?' \nRendlesham notices you're at loss. \n'Say yes - if you wanna chance to win the [Secret Tab]!' \nYou accept and [superhero] starts the [countdown].",
             "options": {
                 "1": {
                     "choice": "Let the dice decide your fate.",
@@ -390,10 +379,10 @@
             }
         },
         "riddle": {
-            "intro": "[insult]\nNot sure why you think you're so smart. But here's the riddle (or is it?)...\nWhat is the definition of an Algorithm?",
+            "intro": "[insult] \nNot sure why you think you're so smart. But here's the riddle (or is it?)... \nWhat is the definition of an Algorithm?",
             "options": {
                 "1": {
-                    "choice": "A process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer.",
+                    "choice": "A process or set of rules to be followed in calculations or other problem-solving\n operations, especially by a computer.",
                     "action": "",
                     "nextScene": "lose"
                 },
@@ -403,14 +392,14 @@
                     "nextScene": "win"
                 },
                 "3": {
-                    "choice": "Ask Rick",
+                    "choice": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                     "action": "",
                     "nextScene": "lose"
                 }
             }
         },
         "cordiallyDecline": {
-            "intro": "You try to order, but you're too late for last orders.\nYou say your goodbyes to Rendlesham and make your way to the door.",
+            "intro": "You try to order, but you're too late for last orders. \nYou say your goodbyes to Rendlesham and make your way to the door.",
             "options": {
                 "1": {
                     "choice": "You win some, you lose some|Go home",
@@ -420,7 +409,7 @@
             }
         },
         "lose": {
-            "intro": "There's a flash of light and when your eyes adjust, you see it's just you and Rendlesham back in the snug.\nHe slides over a fresh, new pint and you have it while he tells you [superhero] stories.\nWhen kicking-out time comes, you're still thirsty, but you say your goodbyes and",
+            "intro": "There's a flash of light and when your eyes adjust, you see it's just you and Rendlesham back in the snug. \n'Here, you haven't got the [Secret Tab], but you deserve something for being a good sport.' \nHe slides over a fresh, new pint and you have it while he tells you [superhero] stories. \nWhen kicking-out time comes, you're still thirsty, but you say your goodbyes and",
             "options": {
                 "1": {
                     "choice": "go home|Go home",
@@ -430,7 +419,7 @@
             }
         },
         "win": {
-            "intro": "Congratulations! You smashed it!\nYou watch your [prize], as [superhero] pours it out for you.\nThis is it, this is what you wanted when you left home, you wanted to get served!",
+            "intro": "You win the [Secret Tab]!  For life! \nYou watch your [prize], as [superhero] pours it out for you. \nThis is it, this is what you wanted when you left home, you wanted to get served!",
             "options": {}
         },
         "template": {
