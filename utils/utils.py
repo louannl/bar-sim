@@ -44,46 +44,52 @@ def get_random_superhero():
     return random.choice(list(superhero_list.keys()))
 
 
-def set_user_character():
-    player_options = {
-        1: {'name': 'Buffy',
-            'id': 140},
-        2: {'name': 'Deadpool',
-            'id': 213},
-        3: {'name': 'Mystique',
-            'id': 480},
-        4: {'name': 'Rambo',
-            'id': 540}
-    }
+player_options = {
+    1: {'name': 'Buffy',
+        'id': 140},
+    2: {'name': 'Deadpool',
+        'id': 213},
+    3: {'name': 'Mystique',
+        'id': 480},
+    4: {'name': 'Rambo',
+        'id': 540}
+}
 
-    print("Which player would you like to select:")
-    for player_no, player_info in player_options.items():
-        player_select = input(
-            f"Player {player_no}: {player_info['name']}?\nEnter 'y' to select or 'n' to keep browsing: ")
-        invalid_input = True
 
-        while invalid_input:
-            if player_select == "y" or player_select == "n":
-                invalid_input = False
-            else:
-                print("I'm sorry that is not a recognised option. To select a player, you need to please enter 'y', to "
-                      "keep browsing enter 'n'. \nLet's try again.")
-                player_select = input(
-                    f"Player {player_no}: {player_info['name']}?\nEnter 'y' to select or 'n' to keep browsing: ")
+def main_character_get_character(player_options):
+    print("Which player would you like to select? Alternatively, enter 'q' to quit")
+    player_key_index = 0
+    player_name_index = 0
+    for player_option in range(len(player_options)):
+        print(list(player_options.keys())[player_key_index], "...",
+              list(player_options.items())[player_name_index][1]["name"])
+        player_key_index += 1
+        player_name_index += 1
 
-        if player_select == "y":
-            return player_info["id"]
-        elif player_select == "n":
-            pass
-        else:
-            print("I'm sorry that is not a recognised option. To select a player, you need to please enter 'y', to keep"
-                  " browsing enter 'n'. \nLet's try again.")
 
-    browse_again = input(
-        "You have browsed through all of our available player options. \nDo you want to try again? Enter 'y' to "
-        "browse again or any key to exit the game: ")
-    if browse_again == "y":
-        set_user_character()
-    else:
+def user_selection():
+    user_select = input("Enter the id number for the character you would like to select now: ")
+    return user_select
+
+
+def main_character_selection(user_select):
+    # Would decorators somehow be helpful to us?
+    if user_select == "q":
         print("Thank you for playing Get Served.")
         exit()
+    try:
+        if player_options[int(user_select)]:
+            print(player_options[int(user_select)]["name"])  # LINE FOR TESTING ONLY
+            print(player_options[int(user_select)]["id"])  # LINE FOR TESTING ONLY
+            return player_options[int(user_select)]["id"]
+    except ValueError as err:  # not raising this properly - type i as input you will see what I mean. Also want to raise a KeyValue error without having to repeat code below?
+        print(
+            f"{err}: I'm sorry that is not a recognised option. Please enter the character id number you wish to select, e.g. '2'. Let's try again.\n")
+        main_character_get_character(player_options)
+        main_character_selection(user_selection())
+        raise
+
+
+# EXAMPLE CALLS
+main_character_get_character(player_options)
+main_character_selection(user_selection())
