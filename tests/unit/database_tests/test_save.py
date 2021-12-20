@@ -25,7 +25,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
 
-    def test_check_player_query_fails_if_wrong_query_params(self, connect_db):
+    def test_check_player_query_fails_with_incorrect_query_params(self, connect_db):
         mock_conn = MagicMock()
         connect_db.return_value = mock_conn
         query_obj = Query()
@@ -75,7 +75,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
 
-    def test_return_play_count_and_win_count_query_fails_when_called_with_params(self, connect_db):
+    def test_return_play_count_and_win_count_query_fails_with_incorrect_query_params(self, connect_db):
         mock_conn = MagicMock()
         connect_db.return_value = mock_conn
         query_obj = Query()
@@ -84,7 +84,7 @@ class MyTestCase(unittest.TestCase):
         FROM game
         WHERE player_id = %s'''
         query_obj.db_connect(query, [player_id])
-        self.assertRaises(Exception, query_obj.db_connect, query, player_name=' ')
+        self.assertRaises(Exception, query_obj.db_connect, query, player_name='3')
 
     def test_display_leaderboard_connection(self, connect_db):
         mock_conn = MagicMock()
@@ -105,7 +105,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
 
-    def test_display_leaderboard_connection_fails_with_incorrect_params(self, connect_db):
+    def test_display_leaderboard_connection_fails_with_incorrect_query_params(self, connect_db):
         mock_conn = MagicMock()
         connect_db.return_value = mock_conn
         query_obj = Query()
@@ -151,7 +151,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
 
-    def test_create_game_save_query_fails_with_too_few_params(self, connect_db):
+    def test_create_game_save_query_fails_with_too_few_query_params(self, connect_db):
         mock_conn = MagicMock()
         connect_db.return_value = mock_conn
         query_obj = Query()
