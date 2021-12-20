@@ -1,6 +1,6 @@
 from unittest import TestCase, main
 from game_engine.character.character import Character
-from tests.unit.game_engine_tests.helper import dummy_character_request
+from tests.unit.game_engine_tests.dummy_data import dummy_character_request
 
 
 class CharacterTestCase(TestCase):

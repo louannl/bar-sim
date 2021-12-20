@@ -1,7 +1,7 @@
 from unittest import TestCase, main, mock
 from game_engine.character.character import Character
 from game_engine.character.fight import FightClub
-from tests.unit.game_engine_tests.helper import (
+from tests.unit.game_engine_tests.dummy_data import (
     dummy_character_request, dummy_character_request_win_stats
 )
 
