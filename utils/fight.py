@@ -19,9 +19,9 @@ class FightClub:
             self.char_wins += 1
             return True
         else:
-            print(f"{self.superhero.name} dodges it and your fist goes crashing into the wall - ouch!")
+            print(
+                f"{self.superhero.name} dodges it and your fist goes crashing into the wall - ouch!")
             return False
-        time.sleep(3)
 
     def round2_intelligence(self):
         if self.main_char_win_intelligence:
@@ -34,7 +34,8 @@ class FightClub:
             self.char_wins += 1
             return True
         else:
-            print(f'''You try to distract {self.superhero.name} - "hey, what's that over there?!"''')
+            print(
+                f'''You try to distract {self.superhero.name} - "hey, what's that over there?!"''')
             time.sleep(5)
             print('*Crickets*. You get a mildly annoyed look in response - "Wow. You expected me to fall for that?"')
             time.sleep(5)
@@ -68,5 +69,5 @@ class FightClub:
         self.round1_speed()
         self.round2_intelligence()
         self.narration()
-        self.round3_strength_and_outcome()
+        self.round3_strength()
         return self.char_wins >= 2
