@@ -1,4 +1,3 @@
-import json
 from dotenv import load_dotenv
 from beer_prize.beer_prize_animation import play_beer
 from game_engine.character.character import Character
@@ -7,6 +6,7 @@ from game_engine.scene.scene import Scene
 from game_engine.scene.scene_manager import scene_manager
 from save.save_game import GetGameHistory
 from save.query import Query
+from story.import_json import import_json
 from utils.save_helpers import (
     create_or_return_player_id,
     return_play_and_win_count,
@@ -24,10 +24,7 @@ env variables before running.
 
 load_dotenv()
 
-with open("story/scenes.json") as jsonScenesFile:
-    game_file = json.load(jsonScenesFile)
-    game_scenes = game_file['scenes']
-    jsonScenesFile.close()
+game_scenes = import_json('story/scenes.json', 'scenes')
 
 player_name = input("Please enter your name: ")
 

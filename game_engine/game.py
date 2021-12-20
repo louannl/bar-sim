@@ -54,3 +54,6 @@ class Game:
         self.pints = new_pints
         print('Current pints: ', self.pints)
         return self.pints
+
+    def start(self):
+        pass

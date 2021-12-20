@@ -2,7 +2,7 @@ from save.query import Query
 
 
 # Composition over inheritance
-class CheckPlayer:
+class Player:
     def __init__(self, query: Query) -> None:
         self.query = query
 
@@ -10,11 +10,6 @@ class CheckPlayer:
         query_string = '''SELECT * FROM player WHERE full_name = %s'''
         query_result = self.query.db_connect(query_string, [(player_name)])
         return query_result
-
-
-class CreatePlayer:
-    def __init__(self, query: Query) -> None:
-        self.query = query
 
     def create_player(self, player_name: str):
         query_string = '''INSERT INTO player (full_name) VALUES (%s);'''
