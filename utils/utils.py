@@ -1,7 +1,12 @@
+from logging import error
 import os
 from dotenv import load_dotenv
 import requests
 import random
+
+from utils.custom_exceptions import ApiError
+
+from utils.decorators import retry_input
 
 load_dotenv()
 
@@ -9,7 +14,9 @@ load_dotenv()
 def random_insult():
     url = 'https://evilinsult.com/generate_insult.php?lang=en&type=json'
     try:
-        request = requests.get(url).json()
+        request = requests.get(url)
+        request.raise_for_status()
+        request = request.json()
         return request['insult']
     except requests.exceptions.ConnectionError:
         print(f"Unable to connect to api {url}.")
@@ -24,26 +31,22 @@ def get_character(num):
     access_token = os.getenv('SUPERHERO_API_KEY')
     url = f"https://superheroapi.com/api/{access_token}/{num}"
     try:
-        return requests.get(url).json()
-    except requests.exceptions.ConnectionError:
-        print(f"Unable to connect to api {url}.")
+        request = requests.get(url)
+        request.raise_for_status()
+        request = request.json()
+        if request['response'] == 'error':
+            raise ApiError(
+                f"An error has occurred while connecting to {url}: {request['error']}")
+        return request
+    except requests.exceptions.RequestException:
+        print(f'An error has occurred while connecting to {url}')
 
 
-def get_random_superhero():
-    superhero_list = {
-        60: "Bane",
-        69: "Batman",
-        97: "Black Canary",
-        309: "Harlequin",
-        322: "Hellboy",
-        522: "Poison Ivy",
-        374: "Juggernaut",
-        400: "Lady Deathstrike",
-        489: "Nick Fury"
-    }
+def get_random_superhero(superhero_list):
     return random.choice(list(superhero_list.keys()))
 
 
+<<<<<<< HEAD
 def set_user_character():
     player_options = {
         1: {'name': 'Iron Man',
@@ -56,34 +59,34 @@ def set_user_character():
             'id': 720}
     }
 
+=======
+@retry_input
+def set_user_character(player_options):
+>>>>>>> main
     print("Which player would you like to select:")
     for player_no, player_info in player_options.items():
-        player_select = input(
-            f"Player {player_no}: {player_info['name']}?\nEnter 'y' to select or 'n' to keep browsing: ")
-        invalid_input = True
-
-        while invalid_input:
-            if player_select == "y" or player_select == "n":
-                invalid_input = False
-            else:
-                print("I'm sorry that is not a recognised option. To select a player, you need to please enter 'y', to "
-                      "keep browsing enter 'n'. \nLet's try again.")
-                player_select = input(
-                    f"Player {player_no}: {player_info['name']}?\nEnter 'y' to select or 'n' to keep browsing: ")
+        player_select = input(f"Player {player_no}: {player_info['name']}?\n"
+                              "Enter 'y' to select or 'n' to keep browsing: ")
 
         if player_select == "y":
             return player_info["id"]
+
         elif player_select == "n":
             pass
+
         else:
-            print("I'm sorry that is not a recognised option. To select a player, you need to please enter 'y', to keep"
-                  " browsing enter 'n'. \nLet's try again.")
+            print("I'm sorry that is not a recognised option. To select a player, "
+                  "you need to please enter 'y', to keep browsing enter 'n'.")
+            raise ValueError
 
     browse_again = input(
-        "You have browsed through all of our available player options. \nDo you want to try again? Enter 'y' to "
+        "You have browsed through all of our available player options. \n"
+        "Do you want to try again?\nEnter 'y' to "
         "browse again or any key to exit the game: ")
+
     if browse_again == "y":
-        set_user_character()
+        set_user_character(player_options)
+
     else:
         print("Thank you for playing Get Served.")
         exit()
