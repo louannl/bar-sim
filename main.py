@@ -1,8 +1,9 @@
 import json
 from beer_prize.beer_prize_animation import play_beer
-from game_engine.game import Game
-from game_engine.scene import Scene, scene_generator
 from game_engine.character import Character
+from game_engine.game import Game
+from game_engine.scene.scene import Scene
+from game_engine.scene.scene_manager import scene_manager
 from save.save_game import GetGameHistory
 from save.query import Query
 from utils.save_helpers import (
@@ -32,7 +33,7 @@ create_or_return_player_id(player_name, game_state)
 scenario = 'introScene'
 while scenario != 'end_scene':
     try:
-        scenario = scene_generator(Scene(game_scenes[scenario]), game_state)
+        scenario = scene_manager(Scene(game_scenes[scenario]), game_state)
     except Exception as e:
         print('Sorry, something went wrong')
         print('Error: ', e)
