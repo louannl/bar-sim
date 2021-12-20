@@ -1,6 +1,6 @@
 import json
 from beer_prize.beer_prize_animation import play_beer
-from game_engine.character import Character
+from game_engine.character.character import Character
 from game_engine.game import Game
 from game_engine.scene.scene import Scene
 from game_engine.scene.scene_manager import scene_manager

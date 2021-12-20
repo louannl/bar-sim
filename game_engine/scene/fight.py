@@ -1,6 +1,6 @@
 
 from game_engine.game import Game
-from utils.fight import FightClub
+from game_engine.character.fight import FightClub
 
 
 def fight_scene(game_state: Game) -> str:

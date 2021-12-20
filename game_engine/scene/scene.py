@@ -1,4 +1,4 @@
-from game_engine.character import Character
+from game_engine.character.character import Character
 from game_engine.game import Game
 
 

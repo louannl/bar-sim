@@ -1,4 +1,4 @@
-from game_engine.character import Character
+from game_engine.character.character import Character
 from utils.utils import get_random_beer, random_insult
 
 
