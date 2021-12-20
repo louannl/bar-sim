@@ -1,4 +1,3 @@
-from utils.utils import set_user_character, get_character
 from game_engine.character import Character
 from utils.utils import get_random_beer, random_insult
 

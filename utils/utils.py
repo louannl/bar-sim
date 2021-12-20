@@ -1,11 +1,9 @@
-from logging import error
 import os
 from dotenv import load_dotenv
 import requests
 import random
 
 from utils.custom_exceptions import ApiError
-
 from utils.decorators import retry_input
 
 load_dotenv()
