@@ -3,8 +3,18 @@ import requests.exceptions
 from tests.unit.utils_tests.helper import player_options, superhero_list
 from unittest import TestCase, main
 from unittest.mock import MagicMock, patch
-from utils.utils import random_insult, get_random_beer, get_random_superhero, get_character, set_user_character
+from utils.utils import (
+    random_insult,
+    get_random_beer,
+    get_random_superhero,
+    get_character,
+    set_user_character
+)
 from utils.custom_exceptions import ApiError
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 
 class TestRandomInsult(TestCase):
@@ -74,7 +84,10 @@ class TestSetUserCharacter(TestCase):
         self.assertEqual(result, 540)
 
     @patch('utils.utils.input')
-    def test_set_user_character_exits_game_after_browse_all_options(self, mock_input):
+    def test_set_user_character_exits_game_after_browse_all_options(
+        self,
+        mock_input
+    ):
         with self.assertRaises(SystemExit):
             mock_input.side_effect = iter(['n', 'n', 'n', 'n', ' '])
             self.assertRaises(SystemExit, set_user_character(player_options))

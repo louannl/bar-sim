@@ -1,4 +1,5 @@
 import json
+from dotenv import load_dotenv
 from beer_prize.beer_prize_animation import play_beer
 from game_engine.character.character import Character
 from game_engine.game import Game
@@ -13,6 +14,15 @@ from utils.save_helpers import (
 )
 from utils.utils import get_character, get_random_superhero, set_user_character
 from utils.character_lists import player_options, superhero_list
+
+'''
+You only need to load dotenv once for the entire program in the main file,
+it is not necessary to load it where os.getenv is used in each sub-module;
+with exception to unit tests, which won't run main.py thus will need to load
+env variables before running.
+'''
+
+load_dotenv()
 
 with open("story/scenes.json") as jsonScenesFile:
     game_file = json.load(jsonScenesFile)

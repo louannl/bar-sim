@@ -1,12 +1,9 @@
 import os
-from dotenv import load_dotenv
 import requests
 import random
 
 from utils.custom_exceptions import ApiError
 from utils.retry_decorator import retry_input
-
-load_dotenv()
 
 
 def random_insult():
