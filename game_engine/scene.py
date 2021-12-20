@@ -6,6 +6,8 @@ from utils.dice_decider import DiceDecider
 import webbrowser
 import time
 
+from utils.fight import FightClub
+
 
 class Scene:
     def __init__(self, scene: dict) -> None:
@@ -70,6 +72,9 @@ def scene_generator(scene: Scene, game_state: Game) -> str:
     if next_scene == 'dice':
         return dice_scene(game_state)
 
+    if next_scene == 'fightTime':
+        return fight_scene(game_state)
+
     if next_scene == 'goHome':
         game_state.update_pints(-3)
 
@@ -126,6 +131,14 @@ def strength_scene_test(game_state: Game) -> str:
     game_state.update_pints(-2)
     time.sleep(3)
     return 'lose'
+
+
+def fight_scene(game_state: Game) -> str:
+    fight_club = FightClub(game_state.superhero, game_state.main_character)
+    fight_result = fight_club.activate_rounds_get_outcome()
+    if fight_result:
+        return 'win'
+    return 'fightTime'
 
 
 def too_sober() -> str:
