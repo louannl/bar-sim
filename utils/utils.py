@@ -1,11 +1,9 @@
-from logging import error
 import os
 from dotenv import load_dotenv
 import requests
 import random
 
 from utils.custom_exceptions import ApiError
-
 from utils.decorators import retry_input
 
 load_dotenv()
@@ -46,23 +44,8 @@ def get_random_superhero(superhero_list):
     return random.choice(list(superhero_list.keys()))
 
 
-<<<<<<< HEAD
-def set_user_character():
-    player_options = {
-        1: {'name': 'Iron Man',
-            'id': 346},
-        2: {'name': 'Deadpool',
-            'id': 213},
-        3: {'name': 'Mystique',
-            'id': 480},
-        4: {'name': 'Wonder Woman',
-            'id': 720}
-    }
-
-=======
 @retry_input
 def set_user_character(player_options):
->>>>>>> main
     print("Which player would you like to select:")
     for player_no, player_info in player_options.items():
         player_select = input(f"Player {player_no}: {player_info['name']}?\n"
