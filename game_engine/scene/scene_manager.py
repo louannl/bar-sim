@@ -1,6 +1,6 @@
 import webbrowser
 from game_engine.game import Game
-from utils.decorators import retry_input
+from utils.retry_decorator import retry_input
 from game_engine.scene.scene import Scene
 from game_engine.scene.dice import dice_scene
 from game_engine.scene.too_sober import too_sober
