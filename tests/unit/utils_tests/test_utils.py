@@ -1,4 +1,5 @@
-from unittest import TestCase, main
+import os
+from unittest import TestCase, main, mock
 from utils.utils import random_insult, get_character
 
 
@@ -11,26 +12,20 @@ class RandomInsult(TestCase):
 
 class GetCharacter(TestCase):
 
-    def is_api_response200_main_character(self):
-        self.assertTrue("<Response[200]>", get_character(1))
-        self.assertTrue("<Response[200]>", get_character(2))
-        self.assertTrue("<Response[200]>", get_character(3))
-        self.assertTrue("<Response[200]>", get_character(4))
+    def test_is_success(self):
+        result = get_character(1)
+        self.assertEqual("success", result['response'])
 
-    def is_api_response200_other_character(self):
-        self.assertTrue("<Response[200]>", get_character(60))
-        self.assertTrue("<Response[200]>", get_character(69))
-        self.assertTrue("<Response[200]>", get_character(97))
-        self.assertTrue("<Response[200]>", get_character(309))
-        self.assertTrue("<Response[200]>", get_character(322))
-        self.assertTrue("<Response[200]>", get_character(374))
-        self.assertTrue("<Response[200]>", get_character(400))
-        self.assertTrue("<Response[200]>", get_character(489))
-        self.assertTrue("<Response[200]>", get_character(522))
+    def test_character_doesnt_exist(self):
+        result = get_character('sdfsd')
+        self.assertEqual("error", result['response'])
+        self.assertEqual("invalid id", result['error'])
 
-    def is_api_exception_raised(self):
-        # If the url works fine, this test would break so changed to False. So if Url not working, then it breaks
-        self.assertFalse(Exception, get_character(1))
+    @mock.patch.dict(os.environ, {"SUPERHERO_API_KEY": "NOT_A_VALID_KEY"})
+    def test_invalid_api_key(self):
+        result = get_character(1)
+        self.assertEqual("error", result['response'])
+        self.assertEqual("access denied", result['error'])
 
 
 if __name__ == '__main__':
