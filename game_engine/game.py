@@ -3,7 +3,11 @@ from utils.utils import get_random_beer, random_insult
 
 
 class Game:
-    def __init__(self, main_character: Character, superhero: Character) -> None:
+    def __init__(
+        self,
+        main_character: Character,
+        superhero: Character
+    ) -> None:
         """
         These variables are used when preparing the scenes, so make sure the
         name of the variable matches the story scenes when necessary i.e.
