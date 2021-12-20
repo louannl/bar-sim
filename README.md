@@ -56,7 +56,7 @@ To run this program locally you need to have the following installed/setup:
 
 - Python v3.9 or above
 - API key for superheroAPI (please see API Reference below) - [Click Here For Link](https://superheroapi.com/)
-- MySQL Database - [Link to SQL query to set up database]((https://github.com/louannl/bar-sim/blob/main/save/game_database.sql))
+- MySQL Database - [Link to SQL query to set up database](https://github.com/louannl/bar-sim/blob/main/save/game_database.sql)
 - A really swanky looking terminal to increase the viewing experience
 
 ### Set Up
@@ -103,7 +103,7 @@ python -m unittest
 ```
 Specific modules can be specified by appending the file path of the test. See unittest documentation for more information e.g.
 ```
-python -m unittest tests/unit/util/test_dice_decider.py
+python -m unittest tests/unit/utils_tests/test_dice_decider.py
 ```
 
 ## Authors
