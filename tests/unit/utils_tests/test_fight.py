@@ -16,12 +16,11 @@ class TestFightClub(TestCase):
     '''
     Note for Helen, since we didn't have the time to implement the fight code
     testing wasn't completed for the fight code.
-    I was unable to get the mock to work so time.sleep wouldn't run, which 
-    slows the tests considerably, so I took out a lot of the fight code tests.
     '''
 
-    # @mock.patch('time.sleep', return_value=None)
-    def test_main_char_wins_intelligence(self):
+    @mock.patch('time.sleep')
+    def test_main_char_wins_intelligence(self, mock_input):
+        mock_input = None
         fight_club = FightClub(
             Character(dummy_character_request),
             Character(dummy_character_request_win_stats)
