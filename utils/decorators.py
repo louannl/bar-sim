@@ -5,8 +5,8 @@ def retry_input(func, max_tries=3):
                 return func(*args, **kwargs)
             except (KeyError, ValueError) as e:
                 print("\n ----- Input value is invalid ----- \n")
-                if i == max_tries:
+                if i == (max_tries - 1):
                     print("----- Max retries exceeded, exiting Game -----")
-                    raise e
+                    exit()
                 continue
     return inner
