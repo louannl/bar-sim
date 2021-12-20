@@ -6,6 +6,7 @@
 <details open="open">
     <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
     <ol>
+        <li><a href="#documentation">Documentation</a></li>
         <li>
             <a href="#about-the-project">About The Project</a>
             <ul>
@@ -16,30 +17,36 @@
             <a href="#getting-started">Getting Started</a>
             <ul>
                 <li><a href="#prerequisites">Prerequisites</a></li>
-                <li><a href="#installation">Installation</a></li>
+                <li><a href="#set-up">Set Up</a></li>
             </ul>
         </li>
         <li>
-            <a href="#usage">Usage</a>
+            <a href="#how-to-use">How To Use</a>
             <ul>
-                <li><a href="#how-to-use">How To Use</a></li>
-                <li><a href="#rules-and-that">Rules And That</a></li>
-                <li><a href="#known-issues">Known issues/bugs</a></li>
+                <li><a href="#running-the-game">Running The Game</a></li>
+                <li><a href="#rules-and-mechanics">Rules And Mechanics</a></li>
             </ul>
         </li>
-        <li><a href="#testing-and-evaluation">Testing and Evaluation</a></li>
+        <li>
+            <a href="#demo">Demo</a>
+        </li>
+        <li><a href="#testing">Testing</a></li>
+        <li><a href="#authors">Authors</a></li>
+        <li><a href="#acknowledgements">Acknowledgements</a></li>
     </ol>
 </details>
 
 ## Documentation
 
-[Documentation](https://linktodocumentation) - Dummy link at the mo
+[Project Report - Google Docs](https://docs.google.com/document/d/1_87s56uj6fk9VwKWbEPmRjN2gEk3J3xHTOWokUOifYo/edit?usp=sharing)
+
+[Project Presentation - Google Docs (DRAFT)](https://docs.google.com/presentation/d/1OXWSzu-RpkQF6GcSwaCjd8X5_4D7Qk40UPa648saMWA/edit?usp=sharing)
 
 ## About the project
 
 ### Aims and Objectives
 
-Really fun game
+Really fun game, check out our project report for more details.
 
 ## Getting started
 
@@ -49,56 +56,31 @@ To run this program locally you need to have the following installed/setup:
 
 - Python v3.9 or above
 - API key for superheroAPI (please see API Reference below) - [Click Here For Link](https://superheroapi.com/)
-- MySQL Database - [Link to SQL query to set up database](/C:/Users/User/AppData/Local/Temp/20dGyoUwWkPKMir6aoqSslqIDpw/resources/save/game_database.sql "../save/game_database.sql")
+- MySQL Database - [Link to SQL query to set up database](https://github.com/louannl/bar-sim/blob/main/save/game_database.sql)
 - A really swanky looking terminal to increase the viewing experience
 
-### Installation
+### Set Up
 
 1.  Clone the repo.
 2.  Setup a MySQL database, the information to create the DB is in an SQL file under the 'save' directory.
 3.  Install dependencies by using *requirements.txt*, this can be done using the following command:
+
     *If using a virtual environment set it up first, then install the requirements.txt.
-    `pip install -r requirements.txt`
-4.  Copy the *.env.example* file and rename it to *.env* within the same directory.
-5.  Fill in the *.env* information with your own API keys and DB details.
+    ```
+    pip install -r requirements.txt`
+    ```
+4.  Copy the `.env.example` file and rename it to `.env` within the *same* directory.
+5.  Fill in the `.env` information with your own API keys and DB details.
 
-## API Reference
+## How To Use
 
-#### Get all items
-
-```http
-  GET /api/items
-```
-
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `api_key` | `string` | **Required**. Your API key |
-
-#### Get item
-
-```http
-  GET /api/items/${id}
-```
-
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `id` | `string` | **Required**. Id of item to fetch |
-
-#### some(stuff1, stuff2)
-
-Takes two stuffs and returns the stuff.
-
-## Features
-
-- Cross platform
-- Other stuff
-
-### How to Use
-
+### Running the game
 To run the game, run the following command from the root directory:
-`python -m main`
+```
+python -m main
+```
 
-### Rules and that
+### Rules and mechanics
 
 The aim of the game is to keep/get as many 'pints' as possible while navigating through perilous scenes which constantly change. Your play-through at the end will be recorded in a database and a score board will be rendered at the end.
 
@@ -112,33 +94,17 @@ Mechanics:
 
 ![Bar-Sim-Demo.gif](readme_images/Bar-Sim-Demo.gif)
 
-(keep file in repo rather than external hosting to make life easier)
-
-## Known issues/bugs
-
 ## Testing
 
 *To run all unit tests, the tests directory needs to have an empty `__init__.py` file.*
 To run automated unit tests, run the following command in the root directory:
-`python -m unittest`
+```
+python -m unittest
+```
 Specific modules can be specified by appending the file path of the test. See unittest documentation for more information e.g.
-`python -m unittest tests/unit/util/test_dice_decider.py`
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-## Badges
-
-Add badges from somewhere like: [shields.io](https://shields.io/)
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
-
-## Acknowledgements
-
-- [Beer Pouring Animation - Original MP4 Video source](https://pixabay.com/videos/beer-glass-pouring-drink-bar-pub-67395/)
-- [Attribution Credit - Breakdown Pictures](https://pixabay.com/users/breakdownpictures-12141240/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=67395)
+```
+python -m unittest tests/unit/utils_tests/test_dice_decider.py
+```
 
 ## Authors
 
@@ -147,3 +113,8 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 - [@nuranozan](https://github.com/nuran-o)
 - [@zoethomas](https://github.com/zoerthomas)
 - [@sunithawebster](https://github.com/SunithaWebster)
+  
+## Acknowledgements
+
+- [Beer Pouring Animation - Original MP4 Video source](https://pixabay.com/videos/beer-glass-pouring-drink-bar-pub-67395/)
+- [Attribution Credit - Breakdown Pictures](https://pixabay.com/users/breakdownpictures-12141240/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=67395)
