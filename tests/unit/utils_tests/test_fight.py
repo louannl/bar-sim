@@ -21,7 +21,7 @@ class TestFightClub(TestCase):
     '''
 
     # @mock.patch('time.sleep', return_value=None)
-    def test_r2_main_char_win_intelligence(self):
+    def test_main_char_wins_intelligence(self):
         fight_club = FightClub(
             Character(dummy_character_request),
             Character(dummy_character_request_win_stats)
