@@ -24,8 +24,15 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
-        self.assertRaises(Exception, query_obj.db_connect, query, player_id=' ')
 
+    def test_check_player_query_fails_if_wrong_query_params(self, connect_db):
+        mock_conn = MagicMock()
+        connect_db.return_value = mock_conn
+        query_obj = Query()
+        player_name = 'player name'
+        query = '''SELECT * FROM player WHERE full_name = %s'''
+        query_obj.db_connect(query, [player_name])
+        self.assertRaises(Exception, query_obj.db_connect, query, player_id='3')
 
     def test_create_player_query(self, connect_db):
         mock_conn = MagicMock()
@@ -41,7 +48,15 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
-        self.assertRaises(Exception, query_obj.db_connect, query, player_id=' ')
+
+    def test_create_player_query_fails_with_incorrect_query_params(self, connect_db):
+        mock_conn = MagicMock()
+        connect_db.return_value = mock_conn
+        query_obj = Query()
+        player_name = 'player name'
+        query = '''INSERT INTO player (full_name) VALUES (%s);'''
+        query_obj.db_connect(query, [player_name])
+        self.assertRaises(Exception, query_obj.db_connect, query, player_id='3')
 
     def test_return_play_count_and_win_count_query(self, connect_db):
         mock_conn = MagicMock()
@@ -59,6 +74,16 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
+
+    def test_return_play_count_and_win_count_query_fails_when_called_with_params(self, connect_db):
+        mock_conn = MagicMock()
+        connect_db.return_value = mock_conn
+        query_obj = Query()
+        player_id = 'player_id'
+        query = '''SELECT count(case when won = 1 then 1 end), count(*)
+        FROM game
+        WHERE player_id = %s'''
+        query_obj.db_connect(query, [player_id])
         self.assertRaises(Exception, query_obj.db_connect, query, player_name=' ')
 
     def test_display_leaderboard_connection(self, connect_db):
@@ -79,13 +104,24 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
-        self.assertRaises(Exception, query_obj.db_connect, query, player_id=' ')
+
+    def test_display_leaderboard_connection_fails_with_incorrect_params(self, connect_db):
+        mock_conn = MagicMock()
+        connect_db.return_value = mock_conn
+        query_obj = Query()
+        query = '''SELECT p.full_name AS player, sum(pint_count) AS pint_total
+        FROM game AS g
+        JOIN player AS p on p.id = g.player_id
+        GROUP BY 1
+        ORDER BY 2 desc
+        LIMIT 3;'''
+        query_obj.db_connect_to_table(query)
+        self.assertRaises(Exception, query_obj.db_connect, query, player_id='3')
 
     @patch('prettytable.from_db_cursor')
     def test_display_leaderboard_from_db_cursor_called(self, connect_db, from_db_cursor):
         mock_conn = MagicMock()
         connect_db.return_value = mock_conn
-        cursor = mock_conn.cursor.return_value
         query_obj = Query()
         query = '''SELECT p.full_name AS player, sum(pint_count) AS pint_total
             FROM game AS g
@@ -114,7 +150,19 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
-        self.assertRaises(Exception, query_obj.db_connect, query, player_id=' ')
+
+    def test_create_game_save_query_fails_with_too_few_params(self, connect_db):
+        mock_conn = MagicMock()
+        connect_db.return_value = mock_conn
+        query_obj = Query()
+        player_id, character, won, pint_count, game_date = 'player_id', 'char', 'Bool', 'count', 'time_stamp'
+        params = [player_id, character, won, pint_count, game_date]
+        query = '''
+                INSERT INTO game (player_id, player_character, won, pint_count, game_date)
+                VALUES (%s, %s, %s, %s, %s)
+                '''
+        query_obj.db_connect(query, params)
+        self.assertRaises(Exception, query_obj.db_connect, query, player_id='3')
 
 
 if __name__ == '__main__':
