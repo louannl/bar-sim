@@ -1,4 +1,5 @@
 from game_engine.character.character import Character
+from save.player import Player
 from utils.utils import get_random_beer, random_insult
 
 
@@ -6,14 +7,15 @@ class Game:
     def __init__(
         self,
         main_character: Character,
-        superhero: Character
+        superhero: Character,
+        player: Player
     ) -> None:
         """
         These variables are used when preparing the scenes, so make sure the
         name of the variable matches the story scenes when necessary i.e.
         [prize] [superhero] etc. (exception made for character classes!)
         """
-        self.player_id = None
+        self.player = player
         self.main_character = main_character
         self.superhero = superhero
         self.pints = 9
@@ -27,14 +29,11 @@ class Game:
     def update_superhero(self, superhero: Character) -> None:
         self.superhero = superhero
 
-    def update_player_id(self, player_id: int) -> None:
-        self.player_id = player_id
-
     def get_pints(self) -> int:
         return self.pints
 
     def get_player_id(self) -> int:
-        return self.player_id
+        return self.player.id
 
     def get_character_name(self) -> str:
         return self.main_character.getName()
@@ -45,7 +44,7 @@ class Game:
     def victory(self) -> None:
         self.won = True
 
-    def update_pints(self, amount):
+    def update_pints(self, amount: int) -> int:
         new_pints = self.pints + amount
         if new_pints <= 0:
             print('Oh no! No more pints are in your system!')

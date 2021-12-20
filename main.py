@@ -4,6 +4,7 @@ from game_engine.character.character import Character
 from game_engine.game import Game
 from game_engine.scene.scene import Scene
 from game_engine.scene.scene_manager import scene_manager
+from save.player import Player
 from save.save_game import GetGameHistory
 from save.query import Query
 from story.import_json import import_json
@@ -25,17 +26,12 @@ env variables before running.
 load_dotenv()
 
 game_scenes = import_json('story/scenes.json', 'scenes')
-
-player_name = input("Please enter your name: ")
-
-player_character_id = set_user_character(player_options)
-
+player = Player(Query(), input("Please enter your name: "))
 game_state = Game(
-    Character(get_character(player_character_id)),
-    Character(get_character(get_random_superhero(superhero_list)))
+    Character(get_character(set_user_character(player_options))),
+    Character(get_character(get_random_superhero(superhero_list))),
+    player
 )
-
-create_or_return_player_id(player_name, game_state)
 
 scenario = 'introScene'
 while scenario != 'end_scene':
