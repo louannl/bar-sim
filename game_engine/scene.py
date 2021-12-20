@@ -78,11 +78,11 @@ def scene_generator(scene: Scene, game_state: Game) -> str:
     if next_scene == 'goHome':
         game_state.update_pints(-3)
 
+    if next_scene == 'earthquake':
+        return earthquake_scene(game_state)
+
     if next_scene == 'win':
         game_state.victory()
-
-    if next_scene == 'earthquake':
-        return earthquake_scene()
 
     return next_scene
 
