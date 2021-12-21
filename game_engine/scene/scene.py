@@ -1,7 +1,11 @@
 class Scene:
-    def __init__(self, scene: dict) -> None:
+    def __init__(self, scene_name: str, scene: dict) -> None:
+        self.scene_name = scene_name
         self.intro = scene['intro']
         self.options = scene['options']
+
+    def return_name(self) -> dict:
+        return self.scene_name
 
     def return_options(self) -> dict:
         return self.options

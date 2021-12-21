@@ -35,15 +35,15 @@ class SceneManager:
         if next_scene == 'earthquake':
             return earthquake_scene(game)
 
-        if next_scene == 'win':
-            game.victory()
-
         if next_scene == 'goHome':
             game.pint_counter.update_pints(-3)
 
         return next_scene
 
     def manage(self, scene: Scene, game: 'Game') -> str:
+        if scene.return_name() == 'win':
+            game.victory()
+
         if game.pint_counter.get_pints() <= 0:
             return too_sober()
 
@@ -54,6 +54,7 @@ class SceneManager:
             "prize": game.prize,
             "insult": game.insult
         }))
+
         if not scene.return_options():
             print('THE END')
             return 'end_scene'

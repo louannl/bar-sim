@@ -56,6 +56,7 @@ class Game:
             try:
                 scenario = self.scene_manager.manage(
                     Scene(
+                        scenario,
                         self.scenes[scenario]
                     ),
                     self
