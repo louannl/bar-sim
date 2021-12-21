@@ -1,4 +1,6 @@
 from unittest import TestCase, main
+from unittest.mock import patch
+
 from game_engine.character.character import Character
 from game_engine.game.game import Game
 from save.player import Player
@@ -24,6 +26,16 @@ class GameTestCase(TestCase):
         )
         result = game_class.get_pints()
         self.assertEqual(9, result)
+
+    @patch('random.random')
+    def test_get_random_beer_random_choice_called(self, mock_random):
+        game_class = Game(
+            Character(dummy_character_request),
+            Character(dummy_character_request),
+            Player(Query(), 'lou')
+        )
+        game_class.get_random_beer()
+        self.assertTrue(1, mock_random.choice.call_count)
 
 
 if __name__ == '__main__':
