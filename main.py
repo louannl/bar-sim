@@ -1,5 +1,10 @@
 from dotenv import load_dotenv
 from game_engine.character.character import Character
+from game_engine.character.get_characters import (
+    get_character,
+    get_random_superhero,
+    set_user_character
+)
 from game_engine.game.game import Game
 from game_engine.game.pints_counter import PintCounter
 from game_engine.scene.scene_manager import SceneManager
@@ -8,7 +13,6 @@ from save.player import Player
 from save.db_connection import DBConnection
 from save.save import Save
 from save.stats import Stats
-from utils.utils import get_character, get_random_superhero, set_user_character
 from utils.character_lists import player_options, superhero_list
 
 '''

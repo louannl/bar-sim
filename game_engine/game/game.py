@@ -1,4 +1,5 @@
 from game_engine.character.character import Character
+from game_engine.game.insult import Insult
 from game_engine.game.pints_counter import PintCounter
 from game_engine.scene.scene import Scene
 from game_engine.scene.scene_manager import SceneManager
@@ -6,7 +7,7 @@ from save.end import End
 from save.player import Player
 from save.save import Save
 from story.import_json import import_json
-from utils.utils import get_random_beer, random_insult
+from utils.utils import get_random_beer
 
 
 class Game:
@@ -30,7 +31,7 @@ class Game:
         self.pint_counter = pint_counter
         self.won = False
         self.prize = get_random_beer()
-        self.insult = random_insult()
+        self.insult = Insult().get_random_insult()
 
     def update_main_character(self, character: Character) -> None:
         self.main_character = character

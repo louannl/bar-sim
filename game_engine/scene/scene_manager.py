@@ -1,5 +1,4 @@
 import webbrowser
-
 from utils.retry_decorator import retry_input
 from game_engine.scene.scene import Scene
 from game_engine.scene.dice import dice_scene
