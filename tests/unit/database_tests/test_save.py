@@ -23,7 +23,6 @@ class MyTestCase(TestCase):
         self.assertEqual(1, cursor.close.call_count)
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
-        self.assertEqual(1, mock_conn.close.call_count)
         self.assertRaises(Exception, query_obj.query,
                           query, player_id=' ')
 
@@ -40,7 +39,6 @@ class MyTestCase(TestCase):
         self.assertEqual(1, cursor.close.call_count)
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
-        self.assertEqual(1, mock_conn.close.call_count)
         self.assertRaises(Exception, query_obj.query,
                           query, player_id=' ')
 
@@ -59,7 +57,6 @@ class MyTestCase(TestCase):
         self.assertEqual(1, cursor.close.call_count)
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
-        self.assertEqual(1, mock_conn.close.call_count)
         self.assertRaises(Exception, query_obj.query,
                           query, player_name=' ')
 
@@ -80,7 +77,6 @@ class MyTestCase(TestCase):
         self.assertEqual(1, cursor.close.call_count)
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
-        self.assertEqual(1, mock_conn.close.call_count)
         self.assertRaises(Exception, query_obj.query,
                           query, player_id=' ')
 
@@ -116,7 +112,6 @@ class MyTestCase(TestCase):
         self.assertEqual(1, cursor.close.call_count)
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
-        self.assertEqual(1, mock_conn.close.call_count)
         self.assertRaises(Exception, query_obj.query,
                           query, player_id=' ')
 
