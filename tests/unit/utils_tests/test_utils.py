@@ -1,10 +1,8 @@
 import os
-import requests.exceptions
 from tests.unit.utils_tests.helper import player_options, superhero_list
 from unittest import TestCase, main
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 from utils.utils import (
-    random_insult,
     get_random_beer,
     get_random_superhero,
     get_character,
@@ -15,30 +13,6 @@ from dotenv import load_dotenv
 
 
 load_dotenv()
-
-
-class TestRandomInsult(TestCase):
-    @patch('requests.get')
-    def test_random_insult_returns_value(self, mock_request):
-        mock_request.return_value.content = "mock content"
-        response = random_insult()
-        self.assertIsNotNone(response.content)
-
-    @patch('requests.get')
-    def test_random_insult_returns_json_dict_insult_value(self, mock_request):
-        mock_request.return_value.json.return_value = {
-            "insult": "insult_string"}
-        json_data = random_insult()
-        self.assertEqual(json_data, "insult_string")
-
-    @patch('requests.get')
-    def test_random_insult_raises_error(self, mock_request):
-        mock_response = MagicMock
-        mock_response.side_effect = requests.exceptions.ConnectionError()
-        mock_request.return_value = mock_response
-        result = random_insult()
-        self.assertRaises(Exception, result)
-        self.assertIsNone(result)
 
 
 class TestRandomBeer(TestCase):
