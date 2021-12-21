@@ -55,7 +55,7 @@ Really fun game, check out our project report for more details.
 To run this program locally you need to have the following installed/setup:
 
 - Python v3.9 or above
-- API key for superheroAPI (please see API Reference below) - [Click Here For Link](https://superheroapi.com/)
+- API key for superheroAPI - [Click Here For Link](https://superheroapi.com/)
 - MySQL Database - [Link to SQL query to set up database](https://github.com/louannl/bar-sim/blob/main/save/game_database.sql)
 - A really swanky looking terminal to increase the viewing experience
 
@@ -89,6 +89,17 @@ Mechanics:
 - Go Home - sometimes you'll get an option to 'reset' however, your score will be carried over and you will be penalised.
 - Events - some events will depend on your character, choices or just pure luck, these can affect your point score too - so choose wisely!
 - Death *cough*, I mean Tee-total - If you lose too many 'pints' you'll become sober for life and enjoy a long and fruitful life (but, yeah, you lose mate).
+
+Other Code Features:
+- Python Type Hints
+  - These make it far easier to understand what has/will be passed into a function/class
+  - Due to circular import warnings, in some cases an if statement is required on import, like so:
+    ```python
+    if TYPE_CHECKING:
+        from game_engine.game.game import Game
+    ```
+- Decorators
+  - A decorator is used to wrap input functions in a few places, which allows the player to retry if they accidentally input an invalid value.
 
 ## Demo
 
