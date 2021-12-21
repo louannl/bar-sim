@@ -20,11 +20,6 @@ class Game:
         save: Save,
         end: End
     ) -> None:
-        """
-        These variables are used when preparing the scenes, so make sure the
-        name of the variable matches the story scenes when necessary i.e.
-        [prize] [superhero] etc. (exception made for character classes!)
-        """
         self.player = player
         self.scenes = import_json('story/scenes.json', 'scenes')
         self.main_character = main_character
