@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from game_engine.character.character import Character
-from game_engine.game import Game
+from game_engine.game.game import Game
+from game_engine.game.pints_counter import PintCounter
 from game_engine.scene.scene_manager import SceneManager
 from save.end import End
 from save.player import Player
@@ -24,6 +25,7 @@ Game(
     Character(get_character(set_user_character(player_options))),
     Character(get_character(get_random_superhero(superhero_list))),
     SceneManager(),
+    PintCounter(),
     Save(db),
     End(Stats(db))
 ).run()

@@ -8,7 +8,7 @@ from game_engine.scene.fight import fight_scene
 from game_engine.scene.earthquake import earthquake_scene
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from game_engine.game import Game
+    from game_engine.game.game import Game
 
 
 class SceneManager:
@@ -39,18 +39,18 @@ class SceneManager:
             game.victory()
 
         if next_scene == 'goHome':
-            game.update_pints(-3)
+            game.pints.update_pints(-3)
 
         return next_scene
 
     def manage(self, scene: Scene, game: 'Game') -> str:
-        if game.pints <= 0:
+        if game.pints.get_pints() <= 0:
             return too_sober()
 
         print(scene.render_intro({
             "main_character": game.main_character.getName(),
             "superhero": game.superhero.getName(),
-            "pints": game.pints,
+            "pints": game.pints.get_pints(),
             "prize": game.prize,
             "insult": game.insult
         }))

@@ -1,7 +1,7 @@
 import time
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from game_engine.game import Game
+    from game_engine.game.game import Game
 
 
 def strength_scene_test(game_state: 'Game') -> str:

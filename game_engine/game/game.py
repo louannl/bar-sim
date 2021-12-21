@@ -1,4 +1,5 @@
 from game_engine.character.character import Character
+from game_engine.game.pints_counter import PintCounter
 from game_engine.scene.scene import Scene
 from game_engine.scene.scene_manager import SceneManager
 from save.end import End
@@ -15,6 +16,7 @@ class Game:
         main_character: Character,
         superhero: Character,
         scene_manager: SceneManager,
+        pint_counter: PintCounter,
         save: Save,
         end: End
     ) -> None:
@@ -30,7 +32,7 @@ class Game:
         self.scene_manager = scene_manager
         self.save = save
         self.end = end
-        self.pints = 9
+        self.pints = pint_counter
         self.won = False
         self.prize = get_random_beer()
         self.insult = random_insult()
@@ -40,9 +42,6 @@ class Game:
 
     def update_superhero(self, superhero: Character) -> None:
         self.superhero = superhero
-
-    def get_pints(self) -> int:
-        return self.pints
 
     def get_player_id(self) -> int:
         return self.player.id
@@ -55,16 +54,6 @@ class Game:
 
     def victory(self) -> None:
         self.won = True
-
-    def update_pints(self, amount: int) -> int:
-        new_pints = self.pints + amount
-        if new_pints <= 0:
-            print('Oh no! No more pints are in your system!')
-            self.pints = 0
-            return 0
-        self.pints = new_pints
-        print('Current pints: ', self.pints)
-        return self.pints
 
     def start_game(self):
         scenario = 'introScene'
@@ -85,7 +74,7 @@ class Game:
             self.player.id,
             self.main_character.getName(),
             self.won,
-            self.pints
+            self.pints.get_pints()
         )
 
     def end_game(self):
