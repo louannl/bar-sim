@@ -39,18 +39,18 @@ class SceneManager:
             game.victory()
 
         if next_scene == 'goHome':
-            game.pints.update_pints(-3)
+            game.pint_counter.update_pints(-3)
 
         return next_scene
 
     def manage(self, scene: Scene, game: 'Game') -> str:
-        if game.pints.get_pints() <= 0:
+        if game.pint_counter.get_pints() <= 0:
             return too_sober()
 
         print(scene.render_intro({
             "main_character": game.main_character.getName(),
             "superhero": game.superhero.getName(),
-            "pints": game.pints.get_pints(),
+            "pints": game.pint_counter.get_pints(),
             "prize": game.prize,
             "insult": game.insult
         }))

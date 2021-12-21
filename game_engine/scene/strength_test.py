@@ -15,7 +15,7 @@ def strength_scene_test(game_state: 'Game') -> str:
             'struggle for the door, the barman grabs a pint for you...'
         )
         time.sleep(3)
-        game_state.update_pints(2)
+        game_state.pint_counter.update_pints(2)
         time.sleep(1)
         return 'win'
     time.sleep(5)
@@ -23,6 +23,6 @@ def strength_scene_test(game_state: 'Game') -> str:
         'You\'re not strong enough, you\'re pushed back by the force...Oh '
         'no...'
     )
-    game_state.update_pints(-2)
+    game_state.pint_counter.update_pints(-2)
     time.sleep(3)
     return 'lose'

@@ -32,7 +32,7 @@ class Game:
         self.scene_manager = scene_manager
         self.save = save
         self.end = end
-        self.pints = pint_counter
+        self.pint_counter = pint_counter
         self.won = False
         self.prize = get_random_beer()
         self.insult = random_insult()
@@ -74,7 +74,7 @@ class Game:
             self.player.id,
             self.main_character.getName(),
             self.won,
-            self.pints.get_pints()
+            self.pint_counter.get_pints()
         )
 
     def end_game(self):
