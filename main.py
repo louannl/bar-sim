@@ -1,18 +1,12 @@
 from dotenv import load_dotenv
-from beer_prize.beer_prize_animation import play_beer
 from game_engine.character.character import Character
 from game_engine.game import Game
-from game_engine.scene.scene import Scene
-from game_engine.scene.scene_manager import scene_manager
+from game_engine.scene.scene_manager import SceneManager
+from save.end import End
 from save.player import Player
-from save.save_game import GetGameHistory
-from save.query import Query
-from story.import_json import import_json
-from utils.save_helpers import (
-    create_or_return_player_id,
-    return_play_and_win_count,
-    save_game
-)
+from save.db_connection import DBConnection
+from save.save import Save
+from save.stats import Stats
 from utils.utils import get_character, get_random_superhero, set_user_character
 from utils.character_lists import player_options, superhero_list
 
@@ -22,31 +16,14 @@ it is not necessary to load it where os.getenv is used in each sub-module;
 with exception to unit tests, which won't run main.py thus will need to load
 env variables before running.
 '''
-
 load_dotenv()
 
-game_scenes = import_json('story/scenes.json', 'scenes')
-player = Player(Query(), input("Please enter your name: "))
-game_state = Game(
+db = DBConnection()
+Game(
+    Player(db, input("Please enter your name: ")),
     Character(get_character(set_user_character(player_options))),
     Character(get_character(get_random_superhero(superhero_list))),
-    player
-)
-
-scenario = 'introScene'
-while scenario != 'end_scene':
-    try:
-        scenario = scene_manager(Scene(game_scenes[scenario]), game_state)
-    except Exception as e:
-        print('Sorry, something went wrong')
-        print('Error: ', e)
-
-save_game(game_state)
-wins, plays = return_play_and_win_count(game_state)
-print(
-    f'You have played {plays} time{"s" if plays > 1 else ""}, and won {wins} '
-    f'time{"s" if wins > 1 else ""}'
-)
-print(GetGameHistory(Query()).display_leaderboard())
-
-play_beer()
+    SceneManager(),
+    Save(db),
+    End(Stats(db))
+).run()

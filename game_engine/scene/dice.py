@@ -1,9 +1,11 @@
-from game_engine.game import Game
 from utils.dice_decider import DiceDecider
 import time
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from game_engine.game import Game
 
 
-def dice_scene(game_state: Game) -> str:
+def dice_scene(game_state: 'Game') -> str:
     time.sleep(1)
     print('You chuck the dice high, it falls...')
     time.sleep(5)

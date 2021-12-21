@@ -1,31 +1,31 @@
-from save.query import Query
+from save.db_connection import DBConnection
 
 
 class Player:
-    def __init__(self, query: Query, name: str) -> None:
-        self.query = query
+    def __init__(self, db: DBConnection, name: str) -> None:
+        self.db = db
         self.name = name
         self.id = None
         self.create_or_return_id()
 
     def exists(self) -> list:
-        query_string = '''SELECT * FROM player WHERE full_name = %s'''
-        query_result = self.query.db_connect(
-            query_string, [(self.name)])
-        return query_result
+        return self.db.query(
+            '''SELECT * FROM player WHERE full_name = %s''',
+            [(self.name)]
+        )
 
-    def create(self):
-        query_string = '''INSERT INTO player (full_name) VALUES (%s);'''
-        query_result = self.query.db_connect(
-            query_string, [(self.name)])
-        return query_result
+    def create(self) -> None:
+        self.db.query(
+            '''INSERT INTO player (full_name) VALUES (%s);''',
+            [(self.name)]
+        )
 
     def create_or_return_id(self) -> None:
         if self.id:
             return
-        player_exists = self.exists()
-        if not player_exists:
+        player = self.exists()
+        if not player:
             self.create()
-            player_exists = self.exists()
+            player = self.exists()
 
-        self.id = player_exists[0][0]
+        self.id = player[0][0]

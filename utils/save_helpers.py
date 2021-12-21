@@ -1,7 +1,7 @@
 from save.player import Player
-from save.query import Query
+from save.db_connection import Query
 from game_engine.game import Game
-from save.save_game import GetGameHistory, CreateGame
+from save.save import GetGameHistory, CreateGame
 
 
 def create_or_return_player_id(player_name: str, game_state: Game) -> None:
@@ -22,12 +22,3 @@ def save_game(game_state: Game) -> None:
         game_state.get_win(),
         game_state.get_pints()
     )
-
-
-def return_play_and_win_count(game_state: Game):
-    win_lose_count = GetGameHistory(Query())
-    results = win_lose_count.return_play_count_and_win_count(
-        game_state.get_player_id())
-    play_count = results[0][1]
-    win_count = results[0][0]
-    return win_count, play_count

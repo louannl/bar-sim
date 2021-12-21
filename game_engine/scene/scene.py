@@ -1,7 +1,3 @@
-from game_engine.character.character import Character
-from game_engine.game import Game
-
-
 class Scene:
     def __init__(self, scene: dict) -> None:
         self.intro = scene['intro']
@@ -10,12 +6,9 @@ class Scene:
     def return_options(self) -> dict:
         return self.options
 
-    def render_intro(self, game_state: Game) -> str:
-        game_state_variables = vars(game_state).items()
+    def render_intro(self, game_vars: dict) -> str:
         transformed_intro = self.intro
-        for key, value in game_state_variables:
-            if isinstance(value, Character):
-                value = value.getName()
+        for key, value in game_vars.items():
             transformed_intro = transformed_intro.replace(
                 f'[{key}]', str(value))
         return transformed_intro

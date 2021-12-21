@@ -1,9 +1,10 @@
-
-from game_engine.game import Game
 import time
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from game_engine.game import Game
 
 
-def strength_scene_test(game_state: Game) -> str:
+def strength_scene_test(game_state: 'Game') -> str:
     print('You push with all your might!')
     time.sleep(5)
     char_str = game_state.main_character.strength

@@ -1,14 +1,14 @@
 import unittest
 from unittest.mock import patch, MagicMock
-import save.query
-from save.query import Query
+import save.db_connection
+from save.db_connection import Query
 
 
 @patch('save.query.connect_db')
 class MyTestCase(unittest.TestCase):
 
     def test_connection_patch(self, connect_db):
-        self.assertIs(save.query.connect_db, connect_db)
+        self.assertIs(save.db_connection.connect_db, connect_db)
 
     def test_check_player_query(self, connect_db):
         mock_conn = MagicMock()
@@ -24,8 +24,8 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
-        self.assertRaises(Exception, query_obj.db_connect, query, player_id=' ')
-
+        self.assertRaises(Exception, query_obj.db_connect,
+                          query, player_id=' ')
 
     def test_create_player_query(self, connect_db):
         mock_conn = MagicMock()
@@ -41,7 +41,8 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
-        self.assertRaises(Exception, query_obj.db_connect, query, player_id=' ')
+        self.assertRaises(Exception, query_obj.db_connect,
+                          query, player_id=' ')
 
     def test_return_play_count_and_win_count_query(self, connect_db):
         mock_conn = MagicMock()
@@ -59,7 +60,8 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
-        self.assertRaises(Exception, query_obj.db_connect, query, player_name=' ')
+        self.assertRaises(Exception, query_obj.db_connect,
+                          query, player_name=' ')
 
     def test_display_leaderboard_connection(self, connect_db):
         mock_conn = MagicMock()
@@ -79,7 +81,8 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
-        self.assertRaises(Exception, query_obj.db_connect, query, player_id=' ')
+        self.assertRaises(Exception, query_obj.db_connect,
+                          query, player_id=' ')
 
     @patch('prettytable.from_db_cursor')
     def test_display_leaderboard_from_db_cursor_called(self, connect_db, from_db_cursor):
@@ -114,7 +117,8 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(1, cursor.fetchall.call_count)
         self.assertEqual(1, mock_conn.commit.call_count)
         self.assertEqual(1, mock_conn.close.call_count)
-        self.assertRaises(Exception, query_obj.db_connect, query, player_id=' ')
+        self.assertRaises(Exception, query_obj.db_connect,
+                          query, player_id=' ')
 
 
 if __name__ == '__main__':

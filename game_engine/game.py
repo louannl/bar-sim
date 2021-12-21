@@ -1,14 +1,22 @@
 from game_engine.character.character import Character
+from game_engine.scene.scene import Scene
+from game_engine.scene.scene_manager import SceneManager
+from save.end import End
 from save.player import Player
+from save.save import Save
+from story.import_json import import_json
 from utils.utils import get_random_beer, random_insult
 
 
 class Game:
     def __init__(
         self,
+        player: Player,
         main_character: Character,
         superhero: Character,
-        player: Player
+        scene_manager: SceneManager,
+        save: Save,
+        end: End
     ) -> None:
         """
         These variables are used when preparing the scenes, so make sure the
@@ -16,8 +24,12 @@ class Game:
         [prize] [superhero] etc. (exception made for character classes!)
         """
         self.player = player
+        self.scenes = import_json('story/scenes.json', 'scenes')
         self.main_character = main_character
         self.superhero = superhero
+        self.scene_manager = scene_manager
+        self.save = save
+        self.end = end
         self.pints = 9
         self.won = False
         self.prize = get_random_beer()
@@ -54,5 +66,32 @@ class Game:
         print('Current pints: ', self.pints)
         return self.pints
 
-    def start(self):
-        pass
+    def start_game(self):
+        scenario = 'introScene'
+        while scenario != 'end_scene':
+            try:
+                scenario = self.scene_manager.manage(
+                    Scene(
+                        self.scenes[scenario]
+                    ),
+                    self
+                )
+            except Exception as e:
+                print('Sorry, something went wrong')
+                print('Error: ', e)
+
+    def save_game(self):
+        self.save.save(
+            self.player.id,
+            self.main_character.getName(),
+            self.won,
+            self.pints
+        )
+
+    def end_game(self):
+        self.end.end(self.player)
+
+    def run(self):
+        self.start_game()
+        self.save_game()
+        self.end_game()

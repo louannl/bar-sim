@@ -1,11 +1,13 @@
 import time
 from random import randint
-from game_engine.game import Game
 from game_engine.scene.dice import dice_scene
 from game_engine.scene.strength_test import strength_scene_test
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from game_engine.game import Game
 
 
-def earthquake_scene(game_state: Game) -> None:
+def earthquake_scene(game_state: 'Game') -> None:
     time.sleep(3)
     print(
         "The murky flagstones cleave and fracture as you abandon all thoughts"
