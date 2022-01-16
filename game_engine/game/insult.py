@@ -1,17 +1,18 @@
+import random
 import requests
 
 
 class Insult:
     def __init__(self) -> None:
-        self.url = (
-            'https://evilinsult.com/generate_insult.php?lang=en&type=json'
-        )
+        self.insults = [
+            '''Out, you green-sickness carrion! Out, you baggage!
+            You tallow-face!''',
+            '''He hath eaten me out of house and home;
+            he hath put all substance into that fat belly of his.''',
+            '''It is a tale Told by an idiot, full of sound and fury,
+            Signifying nothing''',
+            '''Give me your hand...I can tell your fortune. You are a fool.'''
+        ]
 
-    def get_random_insult(self):
-        try:
-            request = requests.get(self.url)
-            request.raise_for_status()
-            request = request.json()
-            return request['insult']
-        except requests.exceptions.ConnectionError:
-            print(f"Unable to connect to api {self.url}.")
+    def get_random_insult(self) -> str:
+        return random.choice(self.insults)
