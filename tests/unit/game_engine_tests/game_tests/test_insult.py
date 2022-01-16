@@ -1,6 +1,4 @@
-import requests.exceptions
 from unittest import TestCase, main
-from unittest.mock import MagicMock, patch
 from game_engine.game.insult import Insult
 
 
@@ -9,6 +7,11 @@ class TestRandomInsult(TestCase):
         result = Insult().get_random_insult()
         # AssertTrue will also check that it does not return an empty string
         self.assertTrue(result)
+    '''
+    Old tests used to random insult api which was used, but removed later
+    due to very 'inappropriate' insults.
+
+    Kept in comment block, as to my knowledge, this is still being marked.
 
     def test_random_insult_fails_url(self):
         insult = Insult()
@@ -31,6 +34,7 @@ class TestRandomInsult(TestCase):
         result = Insult().get_random_insult()
         self.assertRaises(Exception, result)
         self.assertIsNone(result)
+    '''
 
 
 if __name__ == '__main__':
